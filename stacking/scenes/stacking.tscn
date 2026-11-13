@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://pxfkkj0i7118"]
 
-[ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://stacking/stacking.gd" id="1_0ja3f"]
+[ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://stacking/scripts/stacking.gd" id="1_460fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(1920, 20)
 
 [node name="Stacking" type="Node2D" unique_id=2112076231]
-script = ExtResource("1_0ja3f")
+script = ExtResource("1_460fq")
 
-[node name="Stack" type="Node2D" parent="." unique_id=372930571]
+[node name="Servers" type="Node2D" parent="." unique_id=372930571]
+
+[node name="ServerSpawnPoint" type="Marker2D" parent="Servers" unique_id=852108714]
+position = Vector2(102, 49)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=277512907]
 position = Vector2(640, 720)
@@ -30,6 +33,7 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_ke0wg")
 
 [node name="Timer" type="Timer" parent="." unique_id=1222740851]
+wait_time = 5.0
+autostart = true
 
-[node name="ServerSpawnPoint" type="Marker2D" parent="." unique_id=852108714]
-position = Vector2(102, 49)
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
