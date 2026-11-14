@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3ye6jh26b7r4"]
+
+[ext_resource type="Script" uid="uid://b1gp1r0o45bs7" path="res://Scenes/Plugging/plugging.gd" id="1_3a612"]
+
+[node name="Plugging" type="Node2D" unique_id=104426079]
+script = ExtResource("1_3a612")
