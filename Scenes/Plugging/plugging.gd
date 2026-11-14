@@ -18,6 +18,7 @@ var heads: Array[Node]
 @onready var bot_ports = $PortsBot.get_children()
 
 @onready var line1 = $Line/Line2D
+@onready var line2 = $Line/Line2D2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,8 +26,14 @@ func _ready() -> void:
 	heads = $EthHeads.get_children()
 
 	line1.clear_points()
-	line1.add_point($EthHeads/EthHead4.position, 0)
-	line1.add_point($EthHeads/EthHead.position, 1)
+	line1.add_point($EthHeads/EthHead.position, 0)
+	line1.add_point($EthHeads/EthHead4.position, 1)
+	line1.hide()
+
+	line2.clear_points()
+	line2.add_point($EthHeads/EthHead2.position, 0)
+	line2.add_point($EthHeads/EthHead3.position, 1)
+	line2.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,6 +45,7 @@ func _process(_delta: float) -> void:
 	for head in heads:
 		if head.position.x <= 0:
 			reset_head_position(head)
+
 	set_ative_head()
 	draw_connections()
 
@@ -92,7 +100,15 @@ func reset_head_position(head: EthHead):
 		head.position = starting_positions[3]
 
 func draw_connections():
-	var line_start_pos = $EthHeads/EthHead.global_position - $Line/Line2D.global_position
-	var line_end_pos = $EthHeads/EthHead4.global_position - $Line/Line2D.global_position
-	line1.set_point_position(0, line_start_pos)
-	line1.set_point_position(1, line_end_pos)
+	if $EthHeads/EthHead.get_clicked_in_state() and $EthHeads/EthHead4.get_clicked_in_state():
+		var line_start_pos = $EthHeads/EthHead/OffsetPos.global_position - line1.global_position
+		var line_end_pos = $EthHeads/EthHead4/OffsetPos.global_position - line1.global_position
+		line1.set_point_position(0, line_start_pos)
+		line1.set_point_position(1, line_end_pos)
+		line1.show()
+	if $EthHeads/EthHead2.get_clicked_in_state() and $EthHeads/EthHead3.get_clicked_in_state():
+		var line_start_pos = $EthHeads/EthHead2/OffsetPos.global_position - line1.global_position
+		var line_end_pos = $EthHeads/EthHead3/OffsetPos.global_position - line1.global_position
+		line2.set_point_position(0, line_start_pos)
+		line2.set_point_position(1, line_end_pos)
+		line2.show()

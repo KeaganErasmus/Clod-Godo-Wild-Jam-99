@@ -12,8 +12,10 @@ script = ExtResource("1_3a612")
 [node name="Line" type="Node" parent="." unique_id=1785607675]
 
 [node name="Line2D" type="Line2D" parent="Line" unique_id=1443917387]
-position = Vector2(1206, 607)
-scale = Vector2(1, 0.39999998)
+texture = ExtResource("5_tjg8o")
+texture_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="Line" unique_id=33093408]
 texture = ExtResource("5_tjg8o")
 texture_mode = 1
 
@@ -113,10 +115,12 @@ scale = Vector2(1, 0.39999998)
 
 [node name="EthHead3" parent="EthHeads" unique_id=1910162808 instance=ExtResource("4_fqgmi")]
 position = Vector2(1213, 434.00003)
+rotation = 3.1415927
 scale = Vector2(1, 0.39999998)
 
 [node name="EthHead4" parent="EthHeads" unique_id=1095906674 instance=ExtResource("4_fqgmi")]
 position = Vector2(1213, 606)
+rotation = 3.1415927
 scale = Vector2(1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356016972]

@@ -19,6 +19,9 @@ func _process(delta: float) -> void:
 func set_active_state(state: bool) -> void:
 	is_active = state
 
+func get_clicked_in_state() -> bool:
+	return clicked_in
+
 func click_in() -> bool:
 	if can_be_clicked_in:
 		clicked_in = true
