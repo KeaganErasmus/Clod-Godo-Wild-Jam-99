@@ -5,8 +5,6 @@ extends Node2D
 var num_active_ports: int = 4
 var used = []
 
-var active_head: EthHead = null
-
 var starting_positions = [
 	Vector2(1213.0, 94.0),
 	Vector2(1213.0, 273.0),
@@ -19,7 +17,7 @@ var heads: Array[Node]
 @onready var top_ports = $PortsTop.get_children()
 @onready var bot_ports = $PortsBot.get_children()
 
-@onready var line1 = $Line2D
+@onready var line1 = $Line/Line2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,29 +28,12 @@ func _ready() -> void:
 	line1.add_point($EthHeads/EthHead4.position, 0)
 	line1.add_point($EthHeads/EthHead.position, 1)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	#var y_input = Input.get_axis("move_down", "move_up")
-	#var x_input = Input.get_axis("move_left", "move_right")
-	if active_head:
-		pass
-		#match y_input:
-			#1.0:
-				#active_head.move_head(Types.Direction.UP, move_speed)
-			#-1.0:
-				#active_head.move_head(Types.Direction.DOWN, move_speed)
-		#match x_input:
-			#1.0:
-				#active_head.move_head(Types.Direction.RIGHT, move_speed)
-			#-1.0:
-				#active_head.move_head(Types.Direction.LEFT, move_speed)
 
 	if Input.is_action_just_pressed("ui_select"):
 		for head in heads:
 			head.click_in()
-		#if active_head.click_in():
-			#active_head = null
 
 	for head in heads:
 		if head.position.x <= 0:
@@ -63,7 +44,6 @@ func _process(_delta: float) -> void:
 func set_active_ports():
 	var active_ports: int = 0
 	var index: int = 0
-
 
 	for port in top_ports:
 		index = randi_range(0, top_ports.size() - 1)
@@ -92,20 +72,15 @@ func set_active_ports():
 
 func set_ative_head():
 	if Input.is_action_just_pressed("num_1"):
-		active_head = $EthHeads/EthHead
+		$EthHeads/EthHead.set_active_state(true)
 	if Input.is_action_just_pressed("num_2"):
-		active_head = $EthHeads/EthHead2
+		$EthHeads/EthHead2.set_active_state(true)
 	if Input.is_action_just_pressed("num_3"):
-		active_head = $EthHeads/EthHead3
+		$EthHeads/EthHead3.set_active_state(true)
 	if Input.is_action_just_pressed("num_4"):
-		active_head = $EthHeads/EthHead4
-
-	if active_head:
-		active_head.set_active_state(true)
+		$EthHeads/EthHead4.set_active_state(true)
 
 func reset_head_position(head: EthHead):
-	if head == active_head:
-		active_head.set_active_state(false)
 	head.set_active_state(false)
 	if head == $EthHeads/EthHead:
 		head.position = starting_positions[0]
@@ -117,5 +92,7 @@ func reset_head_position(head: EthHead):
 		head.position = starting_positions[3]
 
 func draw_connections():
-	line1.set_point_position(0, $EthHeads/EthHead4.position)
-	line1.set_point_position(1, $EthHeads/EthHead.position)
+	var line_start_pos = $EthHeads/EthHead.global_position - $Line/Line2D.global_position
+	var line_end_pos = $EthHeads/EthHead4.global_position - $Line/Line2D.global_position
+	line1.set_point_position(0, line_start_pos)
+	line1.set_point_position(1, line_end_pos)

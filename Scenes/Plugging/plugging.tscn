@@ -9,12 +9,13 @@
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1443917387]
+[node name="Line" type="Node" parent="." unique_id=1785607675]
+
+[node name="Line2D" type="Line2D" parent="Line" unique_id=1443917387]
 position = Vector2(1206, 607)
 scale = Vector2(1, 0.39999998)
 texture = ExtResource("5_tjg8o")
-
-[node name="Line" type="Node" parent="." unique_id=1785607675]
+texture_mode = 1
 
 [node name="PortsTop" type="Node" parent="." unique_id=203587596]
 
@@ -104,7 +105,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="EthHead" parent="EthHeads" unique_id=1270304755 instance=ExtResource("4_fqgmi")]
 position = Vector2(1213, 94)
-scale = Vector2(1, 0.39999998)
+scale = Vector2(1, 0.5)
 
 [node name="EthHead2" parent="EthHeads" unique_id=393957347 instance=ExtResource("4_fqgmi")]
 position = Vector2(1213, 273)
@@ -116,7 +117,7 @@ scale = Vector2(1, 0.39999998)
 
 [node name="EthHead4" parent="EthHeads" unique_id=1095906674 instance=ExtResource("4_fqgmi")]
 position = Vector2(1213, 606)
-scale = Vector2(1, 0.39999998)
+scale = Vector2(1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356016972]
 position = Vector2(611, 188.00003)
