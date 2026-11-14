@@ -1,17 +1,27 @@
 [gd_scene format=3 uid="uid://pxfkkj0i7118"]
 
 [ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://stacking/scripts/stacking.gd" id="1_460fq"]
+[ext_resource type="PackedScene" uid="uid://bjxecrkw61svq" path="res://stacking/scenes/stack_rack.tscn" id="2_p4iy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(1920, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mduoy"]
+size = Vector2(1570, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4iy0"]
+size = Vector2(20, 1000)
+
 [node name="Stacking" type="Node2D" unique_id=2112076231]
 script = ExtResource("1_460fq")
+
+[node name="StackRack" parent="." unique_id=736920134 instance=ExtResource("2_p4iy0")]
+position = Vector2(1049, 530)
 
 [node name="Servers" type="Node2D" parent="." unique_id=372930571]
 
 [node name="ServerSpawnPoint" type="Marker2D" parent="Servers" unique_id=852108714]
-position = Vector2(102, 49)
+position = Vector2(1044, 429)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=277512907]
 position = Vector2(640, 720)
@@ -33,7 +43,34 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_ke0wg")
 
 [node name="Timer" type="Timer" parent="." unique_id=1222740851]
-wait_time = 5.0
 autostart = true
+
+[node name="KillBox" type="Node2D" parent="." unique_id=288056501]
+
+[node name="Top" type="Area2D" parent="KillBox" unique_id=1121658116]
+position = Vector2(640, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox/Top" unique_id=639177553]
+shape = SubResource("RectangleShape2D_mduoy")
+
+[node name="Side" type="Area2D" parent="KillBox" unique_id=694807849]
+position = Vector2(640, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox/Side" unique_id=619538242]
+position = Vector2(-790, 460)
+shape = SubResource("RectangleShape2D_p4iy0")
+
+[node name="Side2" type="Area2D" parent="KillBox" unique_id=1011275304]
+position = Vector2(640, -100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox/Side2" unique_id=528818130]
+position = Vector2(790, 460)
+shape = SubResource("RectangleShape2D_p4iy0")
+
+[node name="Top2" type="Area2D" parent="KillBox" unique_id=98158154]
+position = Vector2(640, 820)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox/Top2" unique_id=1583952329]
+shape = SubResource("RectangleShape2D_mduoy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
