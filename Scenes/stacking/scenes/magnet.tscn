@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhi5ruiw7tth4"]
+
+[ext_resource type="Texture2D" uid="uid://bnv4n6c6ygdim" path="res://Scenes/stacking/art/magnet.png" id="1_1k1ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(30, 32)
+
+[node name="Magnet" type="RigidBody2D" unique_id=1556970170]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784088194]
+texture_filter = 1
+texture = ExtResource("1_1k1ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804484058]
+shape = SubResource("RectangleShape2D_ke0wg")

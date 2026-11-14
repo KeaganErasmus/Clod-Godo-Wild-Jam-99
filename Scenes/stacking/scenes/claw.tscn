@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://bjhnkh8p5ckgb"]
 
+[ext_resource type="Texture2D" uid="uid://bikcecusmeuel" path="res://Scenes/stacking/art/claw anchor.png" id="1_2hobe"]
+[ext_resource type="Script" uid="uid://crkmnhryydnib" path="res://Scenes/stacking/scenes/claw.gd" id="1_d1nn5"]
+[ext_resource type="Script" uid="uid://e4erd0bi0dy6" path="res://addons/rope2d/rope2d.gd" id="2_pkpvg"]
+[ext_resource type="Script" uid="uid://bm7lkr3w4u06m" path="res://Scenes/stacking/scenes/draw_rope.gd" id="2_rv7tk"]
+[ext_resource type="PackedScene" uid="uid://bhi5ruiw7tth4" path="res://Scenes/stacking/scenes/magnet.tscn" id="6_rf2it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(128, 64)
+
 [node name="Claw" type="Node2D" unique_id=348644018]
+position = Vector2(181, 72)
+script = ExtResource("1_d1nn5")
+
+[node name="DrawRope" type="Label" parent="." unique_id=1015414063]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_rv7tk")
+
+[node name="RopeAnchor" type="CharacterBody2D" parent="." unique_id=1199262959]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeAnchor" unique_id=657190392]
+shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RopeAnchor" unique_id=1819455582]
+texture_filter = 1
+texture = ExtResource("1_2hobe")
+
+[node name="Rope2D" type="Node2D" parent="." unique_id=220452914 node_paths=PackedStringArray("starting_anchor_mount_point", "ending_anchor_mount_point")]
+position = Vector2(0, 32)
+script = ExtResource("2_pkpvg")
+ready_action = 2
+starting_anchor_mount_point = NodePath("../Magnet")
+ending_anchor_mount_point = NodePath("../RopeAnchor")
+metadata/_custom_type_script = "uid://e4erd0bi0dy6"
+
+[node name="Magnet" parent="." unique_id=1556970170 instance=ExtResource("6_rf2it")]
+position = Vector2(1, 72)
+collision_layer = 3
+collision_mask = 3
