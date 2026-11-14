@@ -1,8 +1,11 @@
 extends Node2D
 
+@export var move_speed: int = 5
+
 var num_active_ports: int = 4
 var used = []
 
+@onready var eth_head = $EthHeads/EthHead
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +13,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	var y_input = Input.get_axis("move_down", "move_up")
+	var x_input = Input.get_axis("move_left", "move_right")
+
+	match y_input:
+		1.0:
+			eth_head.move_head(Types.Direction.UP, move_speed)
+		-1.0:
+			eth_head.move_head(Types.Direction.DOWN, move_speed)
+	match x_input:
+		1.0:
+			eth_head.move_head(Types.Direction.RIGHT, move_speed)
+		-1.0:
+			eth_head.move_head(Types.Direction.LEFT, move_speed)
+
+	if Input.is_action_just_pressed("ui_select"):
+		eth_head.click_in()
+
 
 func set_active_ports():
 	var active_ports: int = 0
