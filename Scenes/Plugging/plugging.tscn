@@ -4,9 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://6yp41ffkcg4w" path="res://Scenes/Plugging/eth_port.tscn" id="2_l8es7"]
 [ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://Scenes/stacking/art/server.png" id="3_kse2n"]
 [ext_resource type="PackedScene" uid="uid://17i6ahp7p813" path="res://Scenes/Plugging/eth_head.tscn" id="4_fqgmi"]
+[ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="5_tjg8o"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1443917387]
+position = Vector2(1206, 607)
+scale = Vector2(1, 0.39999998)
+texture = ExtResource("5_tjg8o")
+
+[node name="Line" type="Node" parent="." unique_id=1785607675]
 
 [node name="PortsTop" type="Node" parent="." unique_id=203587596]
 
@@ -119,7 +127,3 @@ texture = ExtResource("3_kse2n")
 position = Vector2(611, 518)
 scale = Vector2(8.2890625, 8.8125)
 texture = ExtResource("3_kse2n")
-
-[node name="Line2D" type="Line2D" parent="." unique_id=1443917387]
-position = Vector2(1213, 606)
-scale = Vector2(1, 0.39999998)

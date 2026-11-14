@@ -19,13 +19,17 @@ var heads: Array[Node]
 @onready var top_ports = $PortsTop.get_children()
 @onready var bot_ports = $PortsBot.get_children()
 
+@onready var line1 = $Line2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_active_ports()
-	#reset_all_head_positions()
 	heads = $EthHeads.get_children()
 
-	print(top_ports[0].position)
+	line1.clear_points()
+	line1.add_point($EthHeads/EthHead4.position, 0)
+	line1.add_point($EthHeads/EthHead.position, 1)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -75,7 +79,6 @@ func set_active_ports():
 	used.clear()
 	active_ports = 0
 
-
 	for port in bot_ports:
 		index = randi_range(0, bot_ports.size() - 1)
 
@@ -114,4 +117,5 @@ func reset_head_position(head: EthHead):
 		head.position = starting_positions[3]
 
 func draw_connections():
-	draw_line(top_ports[0].position, bot_ports[0].position, Color.BLACK)
+	line1.set_point_position(0, $EthHeads/EthHead4.position)
+	line1.set_point_position(1, $EthHeads/EthHead.position)
