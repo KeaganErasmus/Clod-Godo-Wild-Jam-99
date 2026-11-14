@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bjxecrkw61svq"]
 
-[ext_resource type="Texture2D" uid="uid://bh4rhu76crqwj" path="res://stacking/art/rack.png" id="1_hvhku"]
-[ext_resource type="Script" uid="uid://dbaqrmmytqs7n" path="res://stacking/scenes/stack_rack.gd" id="1_lgy3e"]
+[ext_resource type="Script" uid="uid://dbaqrmmytqs7n" path="res://Scenes/stacking/scenes/stack_rack.gd" id="1_a5w2v"]
+[ext_resource type="Texture2D" uid="uid://bh4rhu76crqwj" path="res://Scenes/stacking/art/rack.png" id="2_ot050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(132, 324)
 
 [node name="StackRack" type="Node2D" unique_id=736920134]
-script = ExtResource("1_lgy3e")
+script = ExtResource("1_a5w2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1119739421]
 texture_filter = 1
-texture = ExtResource("1_hvhku")
+texture = ExtResource("2_ot050")
 
 [node name="RackWalls" type="StaticBody2D" parent="." unique_id=2129139903]
 

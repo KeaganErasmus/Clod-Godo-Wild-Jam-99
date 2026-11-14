@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://unwh0kqjfu86"]
 
-[ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://stacking/art/server.png" id="1_s71xp"]
+[ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://Scenes/stacking/art/server.png" id="1_s71xp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(128, 32)
 
 [node name="Server" type="RigidBody2D" unique_id=1808738423]
+collision_layer = 2
+collision_mask = 3
 mass = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=614839530]

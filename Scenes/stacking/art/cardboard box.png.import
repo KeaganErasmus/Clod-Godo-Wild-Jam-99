@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kbbx00x511m"
-path="res://.godot/imported/server.png-a16e3bd10624c77be1c6222f70fd07c2.ctex"
+uid="uid://ciren07cx32o6"
+path="res://.godot/imported/cardboard box.png-298f3bb7b9040428a5f449f1d059d15a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stacking/art/server.png"
-dest_files=["res://.godot/imported/server.png-a16e3bd10624c77be1c6222f70fd07c2.ctex"]
+source_file="res://Scenes/stacking/art/cardboard box.png"
+dest_files=["res://.godot/imported/cardboard box.png-298f3bb7b9040428a5f449f1d059d15a.ctex"]
 
 [params]
 

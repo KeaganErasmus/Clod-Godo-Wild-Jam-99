@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh4rhu76crqwj"
-path="res://.godot/imported/rack.png-19953d67e682facf0075bb21a12a9da4.ctex"
+uid="uid://1kbbx00x511m"
+path="res://.godot/imported/server.png-fad4b24066512105f6ff4572515fac93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stacking/art/rack.png"
-dest_files=["res://.godot/imported/rack.png-19953d67e682facf0075bb21a12a9da4.ctex"]
+source_file="res://Scenes/stacking/art/server.png"
+dest_files=["res://.godot/imported/server.png-fad4b24066512105f6ff4572515fac93.ctex"]
 
 [params]
 
