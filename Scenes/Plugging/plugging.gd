@@ -1,18 +1,53 @@
 extends Node2D
 
-@export var eth_port_scene = preload("res://Scenes/Plugging/eth_port.tscn")
+var num_active_ports: int = 4
+var index = null
+var used = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	set_active_ports()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		spaw_ports()
+func _process(_delta: float) -> void:
+	pass
 
-func spaw_ports() -> void:
-	var eth_port = eth_port_scene.instantiate()
-	eth_port.position.x = 500
-	add_child(eth_port)
+func is_number_in_array(num: int, arr: Array) -> bool:
+	var count = arr.size()
+	for i in count:
+		if num == arr[i]:
+			return true
+		else:
+			return false
+	return false
+
+func set_active_ports():
+	var active_ports: int = 0
+
+	var top_ports = $PortsTop.get_children()
+	for port in top_ports:
+		index = randi_range(0, top_ports.size() - 1)
+
+		if !used.has(index):
+			used.append(index)
+			top_ports[index].set_state(true)
+			active_ports += 1
+
+		if active_ports >= num_active_ports:
+			break
+
+	used.clear()
+	active_ports = 0
+
+	var bot_ports = $PortsBot.get_children()
+	for port in bot_ports:
+		index = randi_range(0, bot_ports.size() - 1)
+
+		if !used.has(index):
+			used.append(index)
+			bot_ports[index].set_state(true)
+			active_ports += 1
+
+		if active_ports >= num_active_ports:
+			break

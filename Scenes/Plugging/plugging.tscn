@@ -1,6 +1,102 @@
 [gd_scene format=3 uid="uid://3ye6jh26b7r4"]
 
 [ext_resource type="Script" uid="uid://b1gp1r0o45bs7" path="res://Scenes/Plugging/plugging.gd" id="1_3a612"]
+[ext_resource type="PackedScene" uid="uid://6yp41ffkcg4w" path="res://Scenes/Plugging/eth_port.tscn" id="2_l8es7"]
+[ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://stacking/art/server.png" id="3_kse2n"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
+
+[node name="PortsTop" type="Node" parent="." unique_id=203587596]
+
+[node name="EthPort" parent="PortsTop" unique_id=405246911 instance=ExtResource("2_l8es7")]
+position = Vector2(145, 94)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort2" parent="PortsTop" unique_id=2070759206 instance=ExtResource("2_l8es7")]
+position = Vector2(143, 266)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort3" parent="PortsTop" unique_id=1712618398 instance=ExtResource("2_l8es7")]
+position = Vector2(333, 273)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort4" parent="PortsTop" unique_id=1081410013 instance=ExtResource("2_l8es7")]
+position = Vector2(333, 94)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort5" parent="PortsTop" unique_id=1837374727 instance=ExtResource("2_l8es7")]
+position = Vector2(516, 94)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort6" parent="PortsTop" unique_id=1114567686 instance=ExtResource("2_l8es7")]
+position = Vector2(516, 273)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort7" parent="PortsTop" unique_id=295079043 instance=ExtResource("2_l8es7")]
+position = Vector2(687, 273)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort8" parent="PortsTop" unique_id=1296852112 instance=ExtResource("2_l8es7")]
+position = Vector2(687, 94)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort9" parent="PortsTop" unique_id=1556185511 instance=ExtResource("2_l8es7")]
+position = Vector2(860, 94)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort10" parent="PortsTop" unique_id=624069780 instance=ExtResource("2_l8es7")]
+position = Vector2(860, 273)
+scale = Vector2(0.5, 0.5)
+
+[node name="PortsBot" type="Node" parent="." unique_id=1487277963]
+
+[node name="EthPort11" parent="PortsBot" unique_id=835499602 instance=ExtResource("2_l8es7")]
+position = Vector2(145, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort12" parent="PortsBot" unique_id=1431921525 instance=ExtResource("2_l8es7")]
+position = Vector2(143, 606)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort13" parent="PortsBot" unique_id=1152381922 instance=ExtResource("2_l8es7")]
+position = Vector2(333, 613)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort14" parent="PortsBot" unique_id=1830211639 instance=ExtResource("2_l8es7")]
+position = Vector2(333, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort15" parent="PortsBot" unique_id=1122617066 instance=ExtResource("2_l8es7")]
+position = Vector2(516, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort16" parent="PortsBot" unique_id=783524287 instance=ExtResource("2_l8es7")]
+position = Vector2(516, 613)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort17" parent="PortsBot" unique_id=253546604 instance=ExtResource("2_l8es7")]
+position = Vector2(687, 613)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort18" parent="PortsBot" unique_id=1570331025 instance=ExtResource("2_l8es7")]
+position = Vector2(687, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort19" parent="PortsBot" unique_id=732269150 instance=ExtResource("2_l8es7")]
+position = Vector2(860, 434)
+scale = Vector2(0.5, 0.5)
+
+[node name="EthPort20" parent="PortsBot" unique_id=1015154787 instance=ExtResource("2_l8es7")]
+position = Vector2(860, 613)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356016972]
+position = Vector2(611, 188.00003)
+scale = Vector2(8.2890625, 8.8125)
+texture = ExtResource("3_kse2n")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=990764918]
+position = Vector2(611, 518)
+scale = Vector2(8.2890625, 8.8125)
+texture = ExtResource("3_kse2n")
