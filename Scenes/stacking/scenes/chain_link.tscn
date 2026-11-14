@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbjjup0sw1tag"]
+
+[ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="1_k4rm6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke0wg"]
+radius = 8.0
+height = 64.0
+
+[node name="ChainLink" type="RigidBody2D" unique_id=1771375301]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1150499796]
+texture_filter = 1
+texture = ExtResource("1_k4rm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=188854550]
+shape = SubResource("CapsuleShape2D_ke0wg")

@@ -4,4 +4,4 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	var bodies = area.get_overlapping_bodies()
-	print(bodies.size());
+	#print(bodies.size());

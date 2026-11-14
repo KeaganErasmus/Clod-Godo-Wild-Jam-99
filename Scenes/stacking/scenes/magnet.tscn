@@ -1,15 +1,36 @@
 [gd_scene format=3 uid="uid://bhi5ruiw7tth4"]
 
 [ext_resource type="Texture2D" uid="uid://bnv4n6c6ygdim" path="res://Scenes/stacking/art/magnet.png" id="1_1k1ge"]
+[ext_resource type="Script" uid="uid://bbmyh1k7s0cbo" path="res://Scenes/stacking/scenes/magnet.gd" id="1_b6h4e"]
+[ext_resource type="Texture2D" uid="uid://bdeoqsq7ke4iy" path="res://Scenes/stacking/art/magnetism.png" id="3_0artf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
-size = Vector2(30, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ke0wg"]
+radius = 101.0198
 
-[node name="Magnet" type="RigidBody2D" unique_id=1556970170]
+[node name="Magnet" type="CharacterBody2D" unique_id=1507791081]
+collision_mask = 7
+script = ExtResource("1_b6h4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1784088194]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("1_1k1ge")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1804484058]
-shape = SubResource("RectangleShape2D_ke0wg")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=972117308]
+polygon = PackedVector2Array(-30, 31, -30, -1, -24, -23, -12, -32, 12, -32, 22, -20, 30, -3, 30, 32)
+
+[node name="MagnetArea" type="Area2D" parent="." unique_id=2020987032]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea" unique_id=449933685]
+visible = false
+shape = SubResource("CircleShape2D_ke0wg")
+
+[node name="MagnetismCircle" type="Sprite2D" parent="MagnetArea" unique_id=1592193704]
+visible = false
+texture_filter = 1
+scale = Vector2(3.105, 3.105)
+texture = ExtResource("3_0artf")
+
+[connection signal="body_entered" from="MagnetArea" to="." method="_on_magnet_area_body_entered"]
+[connection signal="body_exited" from="MagnetArea" to="." method="_on_magnet_area_body_exited"]

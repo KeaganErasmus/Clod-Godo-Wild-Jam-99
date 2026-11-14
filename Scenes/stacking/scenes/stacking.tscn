@@ -3,9 +3,19 @@
 [ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://Scenes/stacking/scripts/stacking.gd" id="1_460fq"]
 [ext_resource type="PackedScene" uid="uid://bjxecrkw61svq" path="res://Scenes/stacking/scenes/stack_rack.tscn" id="2_p4iy0"]
 [ext_resource type="Texture2D" uid="uid://305n546hbmv1" path="res://Scenes/stacking/art/bg.png" id="2_vkrw2"]
+[ext_resource type="PackedScene" uid="uid://bjhnkh8p5ckgb" path="res://Scenes/stacking/scenes/claw.tscn" id="4_i4x58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4x58"]
+size = Vector2(1280, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
-size = Vector2(1920, 20)
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b03tl"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv320"]
+size = Vector2(1280, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mduoy"]
 size = Vector2(1570, 20)
@@ -30,23 +40,111 @@ position = Vector2(120, 96)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=277512907]
 position = Vector2(640, 720)
+collision_mask = 7
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1434763820]
+[node name="FloorWall" type="CollisionShape2D" parent="Floor" unique_id=100128426]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_i4x58")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/FloorWall" unique_id=1434763820]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
+offset_left = -640.5
+offset_top = -50.0
+offset_right = 640.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Floor" unique_id=298755231]
+position = Vector2(-653, -365)
+shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/LeftWall" unique_id=742366625]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -360.0
+offset_right = 10.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftWall2" type="CollisionShape2D" parent="Floor" unique_id=739566698]
+position = Vector2(650, -365)
+shape = SubResource("RectangleShape2D_b03tl")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/LeftWall2" unique_id=723455124]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -360.0
+offset_right = 10.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ClawStoppers" type="StaticBody2D" parent="." unique_id=713535226]
+collision_mask = 7
+
+[node name="RighStopper" type="CollisionShape2D" parent="ClawStoppers" unique_id=337562790]
+position = Vector2(1065, 0)
+shape = SubResource("RectangleShape2D_b03tl")
+
+[node name="ColorRect" type="ColorRect" parent="ClawStoppers/RighStopper" unique_id=2048508130]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Roof" type="StaticBody2D" parent="." unique_id=646693685]
+position = Vector2(640, 0)
+collision_layer = 4
+collision_mask = 7
+
+[node name="RoofWall" type="CollisionShape2D" parent="Roof" unique_id=1339266840]
+shape = SubResource("RectangleShape2D_wv320")
+
+[node name="ColorRect" type="ColorRect" parent="Roof/RoofWall" unique_id=1313957367]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
 offset_top = -10.0
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.21, 0.21, 0.21, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=100128426]
-shape = SubResource("RectangleShape2D_ke0wg")
+[node name="Claw" parent="." unique_id=1199262959 instance=ExtResource("4_i4x58")]
+position = Vector2(600, 0)
+lock_rotation = true
 
 [node name="KillBox" type="Area2D" parent="." unique_id=108031541]
 collision_mask = 2
@@ -68,6 +166,7 @@ position = Vector2(640, 820)
 shape = SubResource("RectangleShape2D_mduoy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1222740851]
+wait_time = 2.5
 autostart = true
 
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
