@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1gp1r0o45bs7" path="res://Scenes/Plugging/plugging.gd" id="1_3a612"]
 [ext_resource type="PackedScene" uid="uid://6yp41ffkcg4w" path="res://Scenes/Plugging/eth_port.tscn" id="2_l8es7"]
-[ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://stacking/art/server.png" id="3_kse2n"]
+[ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://Scenes/stacking/art/server.png" id="3_kse2n"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")

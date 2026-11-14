@@ -1,7 +1,6 @@
 extends Node2D
 
 var num_active_ports: int = 4
-var index = null
 var used = []
 
 
@@ -13,17 +12,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func is_number_in_array(num: int, arr: Array) -> bool:
-	var count = arr.size()
-	for i in count:
-		if num == arr[i]:
-			return true
-		else:
-			return false
-	return false
-
 func set_active_ports():
 	var active_ports: int = 0
+	var index: int = 0
 
 	var top_ports = $PortsTop.get_children()
 	for port in top_ports:
