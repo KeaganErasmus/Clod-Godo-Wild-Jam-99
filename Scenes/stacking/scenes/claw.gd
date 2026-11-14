@@ -7,7 +7,7 @@ var line_end_pos: Vector2
 var locked_y
 
 @export var magnet_speed = 200
-var magnet_min_y = 0
+var magnet_min_y = 100
 var magnet_max_y = 680
 
 func _ready() -> void:
@@ -32,8 +32,8 @@ func _process(delta: float) -> void:
 
 	var y_input = Input.get_axis("move_up", "move_down")
 
-	# stop magnet from going too low, but allow it to go back up
-	if ($Chain/Magnet.position.y >= magnet_max_y and y_input > 0):
+	# stop magnet from going too low/high, but allow it to go the opposite way
+	if ($Chain/Magnet.position.y >= magnet_max_y and y_input > 0) or ($Chain/Magnet.position.y <= magnet_min_y and y_input < 0):
 		y_input = 0
 	$Chain/Magnet.position.y += magnet_speed * y_input * delta
 

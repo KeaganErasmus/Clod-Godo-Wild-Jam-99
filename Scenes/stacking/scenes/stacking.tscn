@@ -3,7 +3,13 @@
 [ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://Scenes/stacking/scripts/stacking.gd" id="1_460fq"]
 [ext_resource type="PackedScene" uid="uid://bjxecrkw61svq" path="res://Scenes/stacking/scenes/stack_rack.tscn" id="2_p4iy0"]
 [ext_resource type="Texture2D" uid="uid://305n546hbmv1" path="res://Scenes/stacking/art/bg.png" id="2_vkrw2"]
+[ext_resource type="Texture2D" uid="uid://c1t1rgyn3rncp" path="res://Scenes/stacking/art/server chute.png" id="4_b03tl"]
 [ext_resource type="PackedScene" uid="uid://bjhnkh8p5ckgb" path="res://Scenes/stacking/scenes/claw.tscn" id="4_i4x58"]
+[ext_resource type="Texture2D" uid="uid://14heco41f0wx" path="res://Scenes/stacking/art/ramp.png" id="6_wv320"]
+[ext_resource type="PackedScene" uid="uid://caueu5xqp6wmj" path="res://Scenes/stacking/scenes/stacking_ui.tscn" id="7_m5enb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr77u"]
+size = Vector2(6, 343)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4x58"]
 size = Vector2(1280, 100)
@@ -11,11 +17,20 @@ size = Vector2(1280, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(20, 720)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b03tl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5a04"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3qch"]
 size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b03tl"]
+size = Vector2(234, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv320"]
 size = Vector2(1280, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wv320"]
+friction = 0.51
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mduoy"]
 size = Vector2(1570, 20)
@@ -37,6 +52,21 @@ position = Vector2(1049, 530)
 
 [node name="ServerSpawnPoint" type="Marker2D" parent="Servers" unique_id=852108714]
 position = Vector2(120, 96)
+
+[node name="ServerChute" type="StaticBody2D" parent="." unique_id=1700500275]
+
+[node name="Sprite2D" type="Sprite2D" parent="ServerChute" unique_id=770233751]
+texture_filter = 1
+position = Vector2(120, 160)
+texture = ExtResource("4_b03tl")
+
+[node name="LeftChuteWall" type="CollisionShape2D" parent="ServerChute" unique_id=983731351]
+position = Vector2(43, 139.5)
+shape = SubResource("RectangleShape2D_dr77u")
+
+[node name="LeftChuteWall2" type="CollisionShape2D" parent="ServerChute" unique_id=1401886911]
+position = Vector2(197, 139.5)
+shape = SubResource("RectangleShape2D_dr77u")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=277512907]
 position = Vector2(640, 720)
@@ -81,7 +111,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LeftWall2" type="CollisionShape2D" parent="Floor" unique_id=739566698]
 position = Vector2(650, -365)
-shape = SubResource("RectangleShape2D_b03tl")
+shape = SubResource("RectangleShape2D_t5a04")
 
 [node name="ColorRect" type="ColorRect" parent="Floor/LeftWall2" unique_id=723455124]
 anchors_preset = 8
@@ -101,11 +131,11 @@ metadata/_edit_use_anchors_ = true
 [node name="ClawStoppers" type="StaticBody2D" parent="." unique_id=713535226]
 collision_mask = 7
 
-[node name="RighStopper" type="CollisionShape2D" parent="ClawStoppers" unique_id=337562790]
+[node name="RightStopper" type="CollisionShape2D" parent="ClawStoppers" unique_id=337562790]
 position = Vector2(1065, 0)
-shape = SubResource("RectangleShape2D_b03tl")
+shape = SubResource("RectangleShape2D_f3qch")
 
-[node name="ColorRect" type="ColorRect" parent="ClawStoppers/RighStopper" unique_id=2048508130]
+[node name="ColorRect" type="ColorRect" parent="ClawStoppers/RightStopper" unique_id=2048508130]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -114,6 +144,25 @@ anchor_bottom = 0.5
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftStopper" type="CollisionShape2D" parent="ClawStoppers" unique_id=599343129]
+position = Vector2(115, 0)
+shape = SubResource("RectangleShape2D_b03tl")
+
+[node name="ColorRect" type="ColorRect" parent="ClawStoppers/LeftStopper" unique_id=48940161]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -32.0
+offset_right = 117.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -142,6 +191,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.21, 0.21, 0.21, 1)
 
+[node name="Ramp" type="StaticBody2D" parent="." unique_id=677126467]
+physics_material_override = SubResource("PhysicsMaterial_wv320")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ramp" unique_id=2053681821]
+position = Vector2(150, 610)
+scale = Vector2(1.5, 1)
+texture = ExtResource("6_wv320")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp" unique_id=864345897]
+position = Vector2(-0.18749237, 0)
+scale = Vector2(1.5043972, 1)
+polygon = PackedVector2Array(0, 709, 199, 709, 0, 509)
+
 [node name="Claw" parent="." unique_id=1199262959 instance=ExtResource("4_i4x58")]
 position = Vector2(600, 0)
 lock_rotation = true
@@ -166,8 +228,11 @@ position = Vector2(640, 820)
 shape = SubResource("RectangleShape2D_mduoy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1222740851]
-wait_time = 2.5
+wait_time = 0.5
 autostart = true
 
+[node name="StackingUI" parent="." unique_id=1248863749 instance=ExtResource("7_m5enb")]
+
+[connection signal="servers_mounted" from="StackRack" to="." method="_on_stack_rack_servers_mounted"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh4rhu76crqwj" path="res://Scenes/stacking/art/rack.png" id="2_ot050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
-size = Vector2(132, 324)
+size = Vector2(131, 322)
 
 [node name="StackRack" type="Node2D" unique_id=736920134]
 script = ExtResource("1_a5w2v")
@@ -19,7 +19,11 @@ texture = ExtResource("2_ot050")
 polygon = PackedVector2Array(-70, -170, -70, -162, 62, -162, 62, 162, -70, 162, -70, 170, 70, 170, 70, -170)
 
 [node name="ServerArea" type="Area2D" parent="." unique_id=301671908]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ServerArea" unique_id=724299410]
-position = Vector2(-4, 0)
+position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_ke0wg")
+
+[connection signal="body_entered" from="ServerArea" to="." method="_on_server_area_body_entered"]
+[connection signal="body_exited" from="ServerArea" to="." method="_on_server_area_body_exited"]

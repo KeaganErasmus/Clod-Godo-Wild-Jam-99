@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://caueu5xqp6wmj"]
+
+[node name="StackingUI" type="CanvasLayer" unique_id=90432386]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1289688954]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 100
+
+[node name="ServerCountLabel" type="Label" parent="MarginContainer" unique_id=1214487020]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "SERVERS LEFT: 0"
