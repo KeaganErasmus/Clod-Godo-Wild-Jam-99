@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dfmi8i6ertbhj" path="res://global_ui.gd" id="1_b2grt"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke0wg"]
+bg_color = Color(0.35, 0.35, 0.35, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mduoy"]
+bg_color = Color(0, 0.78039217, 0.52156866, 1)
+
 [node name="GlobalUI" type="CanvasLayer" unique_id=880697242]
 script = ExtResource("1_b2grt")
 
@@ -13,9 +19,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1277560138]
+[node name="TimeLeft" type="ProgressBar" parent="Control" unique_id=1277560138]
 layout_mode = 0
-offset_left = 38.0
+offset_left = 172.0
 offset_top = 33.0
-offset_right = 508.0
+offset_right = 1103.0
 offset_bottom = 60.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ke0wg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mduoy")
+show_percentage = false
+
+[node name="QuotaLabel" type="Label" parent="Control" unique_id=34524630]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 76.0
+offset_right = 320.0
+offset_bottom = 126.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "QUOTA: "
+horizontal_alignment = 1
+
+[node name="DayLabel" type="Label" parent="Control" unique_id=20322868]
+layout_mode = 0
+offset_left = 1081.0
+offset_top = 30.0
+offset_right = 1227.0
+offset_bottom = 80.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "DAY: 1"
+horizontal_alignment = 1

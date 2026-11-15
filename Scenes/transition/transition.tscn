@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dibk1q41y5idt"]
 
-[ext_resource type="Texture2D" uid="uid://b5t3kvhooudfh" path="res://Scenes/transition/art/kaikoura.png" id="1_kf3f5"]
 [ext_resource type="Script" uid="uid://dlg0roic52g74" path="res://Scenes/transition/transition.gd" id="1_rkbkv"]
+[ext_resource type="Texture2D" uid="uid://diantxj87g6er" path="res://Scenes/transition/art/kaikoura 2.png" id="2_rkbkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
-size = Vector2(1280, 584.5)
+size = Vector2(1240, 370)
 
 [node name="Transition" type="Node2D" unique_id=1681195250]
 script = ExtResource("1_rkbkv")
@@ -12,13 +12,54 @@ script = ExtResource("1_rkbkv")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=410792413]
 position = Vector2(640, 359.74997)
 scale = Vector2(2, 1.6873536)
-texture = ExtResource("1_kf3f5")
+texture = ExtResource("2_rkbkv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=401423528]
 
-[node name="DataCenters" type="Node2D" parent="Area2D" unique_id=470357474]
-position = Vector2(640, 428.75)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1930125630]
-position = Vector2(640, 428.75)
+position = Vector2(640, 512)
 shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="DataCenters" type="Node2D" parent="Area2D" unique_id=470357474]
+position = Vector2(640, 512)
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=1524183108]
+
+[node name="Control" type="Control" parent="Control" unique_id=1352998991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Control" unique_id=1750526301]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_right = 108.0
+offset_bottom = 75.0
+grow_horizontal = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/Control/VBoxContainer" unique_id=1902480233]
+layout_mode = 2
+theme_override_constants/margin_top = 223
+
+[node name="DataCenterCount" type="Label" parent="Control/Control/VBoxContainer/MarginContainer2" unique_id=1944629989]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "DATA CENTERS:"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Control/VBoxContainer" unique_id=1199317883]
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="Control/Control/VBoxContainer/MarginContainer" unique_id=1652470605]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CONTINUE"
+
+[connection signal="pressed" from="Control/Control/VBoxContainer/MarginContainer/NextDayButton" to="." method="_on_next_day_button_pressed"]

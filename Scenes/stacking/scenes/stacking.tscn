@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjhnkh8p5ckgb" path="res://Scenes/stacking/scenes/claw.tscn" id="4_i4x58"]
 [ext_resource type="Texture2D" uid="uid://14heco41f0wx" path="res://Scenes/stacking/art/ramp.png" id="6_wv320"]
 [ext_resource type="PackedScene" uid="uid://caueu5xqp6wmj" path="res://Scenes/stacking/scenes/stacking_ui.tscn" id="7_m5enb"]
+[ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="8_t5a04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr77u"]
 size = Vector2(6, 343)
@@ -233,8 +234,10 @@ autostart = true
 [node name="StackingUI" parent="." unique_id=1248863749 instance=ExtResource("7_m5enb")]
 
 [node name="NextSceneDelay" type="Timer" parent="." unique_id=1763549496]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
+
+[node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("8_t5a04")]
 
 [connection signal="servers_mounted" from="StackRack" to="." method="_on_stack_rack_servers_mounted"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
