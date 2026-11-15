@@ -7,8 +7,8 @@ var attracted_bodies = []
 func _process(delta: float) -> void:
 	magnetized = true if Input.is_action_pressed("magnetize") else false
 	$MagnetArea/MagnetismCircle.visible = magnetized
-	
-	
+
+
 func _physics_process(delta: float) -> void:
 	var bodies = $MagnetArea.get_overlapping_bodies()
 	for server in bodies:

@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_active and !clicked_in:
-		position.x -= speed
+		position.x -= speed * delta
 		#rotate(15)
 
 func set_active_state(state: bool) -> void:

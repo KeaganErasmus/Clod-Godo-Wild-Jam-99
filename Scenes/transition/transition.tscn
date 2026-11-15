@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlg0roic52g74" path="res://Scenes/transition/transition.gd" id="1_rkbkv"]
 [ext_resource type="Texture2D" uid="uid://diantxj87g6er" path="res://Scenes/transition/art/kaikoura 2.png" id="2_rkbkv"]
+[ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="3_o3j0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
 size = Vector2(1240, 370)
@@ -61,5 +62,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "CONTINUE"
+script = ExtResource("3_o3j0a")
 
 [connection signal="pressed" from="Control/Control/VBoxContainer/MarginContainer/NextDayButton" to="." method="_on_next_day_button_pressed"]

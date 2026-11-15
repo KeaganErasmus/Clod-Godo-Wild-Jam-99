@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://duiavu3sqbkmi"]
 
 [ext_resource type="Script" uid="uid://bxonmohjglid4" path="res://Scenes/menu/you_lose.gd" id="1_viai8"]
+[ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="2_6hd02"]
 
 [node name="YouLose" type="Control" unique_id=1122728193]
 layout_mode = 3
@@ -36,5 +37,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 34
 text = "TRY AGAIN"
+script = ExtResource("2_6hd02")
 
 [connection signal="pressed" from="VBoxContainer/StartOverButton" to="." method="_on_start_over_button_pressed"]

@@ -8,10 +8,10 @@ var you_lose_scene = preload("res://Scenes/menu/you_lose.tscn")
 
 var default_scene = start_menu_scene
 
-var day_scene_order: Array[PackedScene] = [stacking_scene]
-var current_scene_index: int = 0
+var day_scene_order: Array[PackedScene]
+var current_scene_index: int
 
-var dev_start_from_current_scene = false # MAKE SURE FALSE BEFORE SUBMITTING
+var dev_start_from_current_scene = true # MAKE SURE FALSE BEFORE SUBMITTING
 
 # Transition Scene
 var data_center_list: Array[Vector2] = [] # persist data center positions in transition scene
@@ -27,7 +27,7 @@ var server_quota: int
 var is_timer_active: bool
 
 func _reset_global_variables():
-	day_scene_order = [stacking_scene]
+	day_scene_order = [stacking_scene, plugging_scene]
 	current_scene_index = 0
 	data_center_list = [] # persist data center positions in transition scene
 	days_elapsed = 1
@@ -45,57 +45,57 @@ func _ready() -> void:
 	Global._reset_global_timer()
 	if not dev_start_from_current_scene:
 		get_tree().change_scene_to_packed.call_deferred(default_scene)
-		
+
 func _process(delta: float) -> void:
 	if is_timer_active:
 		_run_global_timer(delta)
-	
+
 func _start_game():
 	_reset_global_variables()
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
-	
+
 func _next_scene():
 	current_scene_index += 1
-	
+
 	if current_scene_index >= day_scene_order.size():
 		data_center_count += 1
-	
+
 	# you completed the day quota
-	if current_scene_index >= day_scene_order.size() and data_center_count >= data_center_quota: 
+	if current_scene_index >= day_scene_order.size() and data_center_count >= data_center_quota:
 		get_tree().change_scene_to_packed.call_deferred(transition_scene)
-	
+
 	# you created a data center but haven't met quota
 	elif current_scene_index >= day_scene_order.size() and data_center_count < data_center_quota:
 		get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
-		
+
 	# next task
 	else:
 		get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])
-		
+
 func _next_day():
 	_reset_global_timer()
 	days_elapsed += 1
-	
+
 	# Update Quota/Difficulty here
 	data_center_quota += days_elapsed
-	
+
 	current_scene_index = 0
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])
-	
+
 func _run_global_timer(delta: float):
 	current_time_left -= timer_drain_rate * delta
 	#print(current_time_left)
 	if current_time_left <= 0:
 		_stop_global_timer()
 		_lose_game()
-	
+
 func _reset_global_timer():
 	is_timer_active = false
 	current_time_left = max_time_left
-	
+
 func _start_global_timer():
 	is_timer_active = true
-	
+
 func _stop_global_timer():
 	is_timer_active = false
 

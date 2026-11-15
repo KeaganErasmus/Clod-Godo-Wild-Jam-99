@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b1gp1r0o45bs7" path="res://Scenes/Plugging/plugging.gd" id="1_3a612"]
 [ext_resource type="PackedScene" uid="uid://6yp41ffkcg4w" path="res://Scenes/Plugging/eth_port.tscn" id="2_l8es7"]
+[ext_resource type="Texture2D" uid="uid://305n546hbmv1" path="res://Scenes/stacking/art/bg.png" id="2_s0n4d"]
 [ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://Scenes/stacking/art/server.png" id="3_kse2n"]
 [ext_resource type="PackedScene" uid="uid://17i6ahp7p813" path="res://Scenes/Plugging/eth_head.tscn" id="4_fqgmi"]
 [ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="5_tjg8o"]
+[ext_resource type="Texture2D" uid="uid://cd684xtdiaf36" path="res://Scenes/Plugging/art/activate-button.png" id="6_jl3qy"]
+[ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="7_ame8e"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=609780034]
+position = Vector2(640, 362)
+texture = ExtResource("2_s0n4d")
 
 [node name="Line" type="Node" parent="." unique_id=1785607675]
 
@@ -132,11 +139,24 @@ rotation = 3.1415927
 scale = Vector2(1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356016972]
-position = Vector2(611, 188.00003)
-scale = Vector2(8.2890625, 8.8125)
+position = Vector2(616.75, 251.00002)
+scale = Vector2(8.199219, 4.875001)
 texture = ExtResource("3_kse2n")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=990764918]
-position = Vector2(611, 518)
-scale = Vector2(8.2890625, 8.8125)
+position = Vector2(611.75, 593.5)
+scale = Vector2(8.277344, 4.0937505)
 texture = ExtResource("3_kse2n")
+
+[node name="Button" type="Button" parent="." unique_id=1241963359]
+offset_left = 577.0
+offset_top = 668.0
+offset_right = 649.0
+offset_bottom = 740.0
+scale = Vector2(0.68, 0.64)
+focus_mode = 0
+icon = ExtResource("6_jl3qy")
+flat = true
+script = ExtResource("7_ame8e")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

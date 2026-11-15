@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4kxxajbmml5d"]
 
 [ext_resource type="Script" uid="uid://bkjcq0jodqhke" path="res://Scenes/menu/starting_menu.gd" id="1_vujxf"]
+[ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="2_hytgr"]
 
 [node name="StartingMenu" type="CanvasLayer" unique_id=871854249]
 script = ExtResource("1_vujxf")
@@ -20,5 +21,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "START"
+script = ExtResource("2_hytgr")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

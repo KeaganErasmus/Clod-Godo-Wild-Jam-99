@@ -1,6 +1,6 @@
 extends Control
 
-@onready var start_over_button = $VBoxContainer/StartOverButton 
+@onready var start_over_button = $VBoxContainer/StartOverButton
 
 
 

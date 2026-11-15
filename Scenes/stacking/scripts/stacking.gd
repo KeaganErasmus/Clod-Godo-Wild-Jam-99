@@ -21,7 +21,7 @@ func _win_stacking():
 		win_label.text = "HOLD..."
 		win_label.visible = true
 		await get_tree().create_timer(server_stack_wait_time).timeout
-		
+
 		if servers_left <= 0:
 			has_won = true
 			Global._stop_global_timer()
@@ -46,10 +46,16 @@ func _set_server_count(count: int):
 		if count < 0:
 			count = 0
 		server_count_label.text = server_count_text + str(count)
-		
+
 		if servers_left <= 0:
 			_win_stacking()
+	servers_left = count
+	if count < 0:
+		count = 0
+	server_count_label.text = server_count_text + str(count)
 
+	if servers_left <= 0:
+		_win_stacking()
 
 func _on_next_scene_delay_timeout() -> void:
 	Global._next_scene()
