@@ -6,10 +6,10 @@ var num_active_ports: int = 2
 var used = []
 
 var starting_positions = [
-	Vector2(1213.0, 94.0),
 	Vector2(1213.0, 273.0),
+	Vector2(1213.0, 349.0),
 	Vector2(1213.0, 434.0),
-	Vector2(1213.0, 606.0),
+	Vector2(1213.0, 508.0),
 ]
 
 var heads: Array[Node]
@@ -32,6 +32,7 @@ func _ready() -> void:
 	set_ports()
 	reset_lines()
 	heads = $EthHeads.get_children()
+	Global._start_global_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -56,6 +57,7 @@ func _process(_delta: float) -> void:
 			reset_lines()
 			next_head_index = 0
 		else:
+			Global._stop_global_timer()
 			await get_tree().create_timer(2).timeout
 			Global._next_scene()
 
@@ -200,5 +202,10 @@ func reset_lines() -> void:
 	line2.hide()
 
 
-func _on_button_pressed() -> void:
+func _on_send_pressed() -> void:
 	set_next_active_head()
+
+func _on_click_pressed() -> void:
+	for head in heads:
+		if head.click_in():
+			amount_clicked += 1

@@ -9,6 +9,7 @@ bg_color = Color(0.35, 0.35, 0.35, 1)
 bg_color = Color(0, 0.78039217, 0.52156866, 1)
 
 [node name="GlobalUI" type="CanvasLayer" unique_id=880697242]
+layer = 2
 script = ExtResource("1_b2grt")
 
 [node name="Control" type="Control" parent="." unique_id=903053229]
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TimeLeft" type="ProgressBar" parent="Control" unique_id=1277560138]
 layout_mode = 0

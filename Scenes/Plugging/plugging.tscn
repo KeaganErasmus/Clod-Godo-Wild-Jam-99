@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="5_tjg8o"]
 [ext_resource type="Texture2D" uid="uid://cd684xtdiaf36" path="res://Scenes/Plugging/art/activate-button.png" id="6_jl3qy"]
 [ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="7_ame8e"]
+[ext_resource type="Texture2D" uid="uid://wkbv8e3w8nyk" path="res://Scenes/Plugging/art/send-button.png" id="9_arxy8"]
+[ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="10_bvevc"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
@@ -31,46 +33,46 @@ texture_mode = 1
 [node name="TopRow" type="Node" parent="PortsTop" unique_id=1742951467]
 
 [node name="EthPort" parent="PortsTop/TopRow" unique_id=405246911 instance=ExtResource("2_l8es7")]
-position = Vector2(145, 94)
-scale = Vector2(0.5, 0.5)
+position = Vector2(145, 273)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort4" parent="PortsTop/TopRow" unique_id=1081410013 instance=ExtResource("2_l8es7")]
-position = Vector2(333, 94)
-scale = Vector2(0.5, 0.5)
+position = Vector2(333, 273)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort5" parent="PortsTop/TopRow" unique_id=1837374727 instance=ExtResource("2_l8es7")]
-position = Vector2(516, 94)
-scale = Vector2(0.5, 0.5)
+position = Vector2(516, 273)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort8" parent="PortsTop/TopRow" unique_id=1296852112 instance=ExtResource("2_l8es7")]
-position = Vector2(687, 94)
-scale = Vector2(0.5, 0.5)
+position = Vector2(687, 273)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort9" parent="PortsTop/TopRow" unique_id=1556185511 instance=ExtResource("2_l8es7")]
-position = Vector2(860, 94)
-scale = Vector2(0.5, 0.5)
+position = Vector2(860, 273)
+scale = Vector2(0.3, 0.3)
 
 [node name="BotRow" type="Node" parent="PortsTop" unique_id=1530368701]
 
 [node name="EthPort2" parent="PortsTop/BotRow" unique_id=2070759206 instance=ExtResource("2_l8es7")]
-position = Vector2(143, 266)
-scale = Vector2(0.5, 0.5)
+position = Vector2(145, 342)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort3" parent="PortsTop/BotRow" unique_id=1712618398 instance=ExtResource("2_l8es7")]
-position = Vector2(333, 273)
-scale = Vector2(0.5, 0.5)
+position = Vector2(335, 349)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort6" parent="PortsTop/BotRow" unique_id=1114567686 instance=ExtResource("2_l8es7")]
-position = Vector2(516, 273)
-scale = Vector2(0.5, 0.5)
+position = Vector2(518, 349)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort7" parent="PortsTop/BotRow" unique_id=295079043 instance=ExtResource("2_l8es7")]
-position = Vector2(687, 273)
-scale = Vector2(0.5, 0.5)
+position = Vector2(689, 349)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort10" parent="PortsTop/BotRow" unique_id=624069780 instance=ExtResource("2_l8es7")]
-position = Vector2(860, 273)
-scale = Vector2(0.5, 0.5)
+position = Vector2(862, 349)
+scale = Vector2(0.3, 0.3)
 
 [node name="PortsBot" type="Node" parent="." unique_id=1487277963]
 
@@ -78,85 +80,108 @@ scale = Vector2(0.5, 0.5)
 
 [node name="EthPort11" parent="PortsBot/TopRow" unique_id=835499602 instance=ExtResource("2_l8es7")]
 position = Vector2(145, 434)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort14" parent="PortsBot/TopRow" unique_id=1830211639 instance=ExtResource("2_l8es7")]
 position = Vector2(333, 434)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort15" parent="PortsBot/TopRow" unique_id=1122617066 instance=ExtResource("2_l8es7")]
 position = Vector2(516, 434)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort18" parent="PortsBot/TopRow" unique_id=1570331025 instance=ExtResource("2_l8es7")]
 position = Vector2(687, 434)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort19" parent="PortsBot/TopRow" unique_id=732269150 instance=ExtResource("2_l8es7")]
 position = Vector2(860, 434)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="BotRow" type="Node" parent="PortsBot" unique_id=30300151]
 
 [node name="EthPort12" parent="PortsBot/BotRow" unique_id=1431921525 instance=ExtResource("2_l8es7")]
-position = Vector2(143, 606)
-scale = Vector2(0.5, 0.5)
+position = Vector2(143, 501)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort13" parent="PortsBot/BotRow" unique_id=1152381922 instance=ExtResource("2_l8es7")]
-position = Vector2(333, 613)
-scale = Vector2(0.5, 0.5)
+position = Vector2(333, 508)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort16" parent="PortsBot/BotRow" unique_id=783524287 instance=ExtResource("2_l8es7")]
-position = Vector2(516, 613)
-scale = Vector2(0.5, 0.5)
+position = Vector2(516, 508)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort17" parent="PortsBot/BotRow" unique_id=253546604 instance=ExtResource("2_l8es7")]
-position = Vector2(687, 613)
-scale = Vector2(0.5, 0.5)
+position = Vector2(687, 508)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthPort20" parent="PortsBot/BotRow" unique_id=1015154787 instance=ExtResource("2_l8es7")]
-position = Vector2(860, 613)
-scale = Vector2(0.5, 0.5)
+position = Vector2(860, 508)
+scale = Vector2(0.3, 0.3)
 
 [node name="EthHeads" type="Node" parent="." unique_id=1488088583]
 
 [node name="EthHead" parent="EthHeads" unique_id=1270304755 instance=ExtResource("4_fqgmi")]
-position = Vector2(1213, 94)
-scale = Vector2(1, 0.5)
+position = Vector2(1213, 273)
+scale = Vector2(0.8, 0.2)
 
 [node name="EthHead2" parent="EthHeads" unique_id=393957347 instance=ExtResource("4_fqgmi")]
-position = Vector2(1213, 273)
-scale = Vector2(1, 0.39999998)
+position = Vector2(1213, 349)
+scale = Vector2(0.8, 0.2)
 
 [node name="EthHead3" parent="EthHeads" unique_id=1910162808 instance=ExtResource("4_fqgmi")]
-position = Vector2(1213, 434.00003)
+position = Vector2(1213, 433.99997)
 rotation = 3.1415927
-scale = Vector2(1, 0.39999998)
+scale = Vector2(0.8, 0.2)
 
 [node name="EthHead4" parent="EthHeads" unique_id=1095906674 instance=ExtResource("4_fqgmi")]
-position = Vector2(1213, 606)
+position = Vector2(1213.0001, 508.00006)
 rotation = 3.1415927
-scale = Vector2(1, 0.5)
+scale = Vector2(0.8, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1356016972]
-position = Vector2(616.75, 251.00002)
-scale = Vector2(8.199219, 4.875001)
+position = Vector2(612, 304)
+scale = Vector2(8, 5)
 texture = ExtResource("3_kse2n")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=990764918]
-position = Vector2(611.75, 593.5)
-scale = Vector2(8.277344, 4.0937505)
+position = Vector2(614.99994, 472)
+scale = Vector2(8, 5)
 texture = ExtResource("3_kse2n")
 
-[node name="Button" type="Button" parent="." unique_id=1241963359]
-offset_left = 577.0
-offset_top = 668.0
-offset_right = 649.0
-offset_bottom = 740.0
-scale = Vector2(0.68, 0.64)
+[node name="Control" type="Control" parent="." unique_id=375629902]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Send" type="Button" parent="Control" unique_id=1787450681]
+layout_mode = 0
+offset_left = 718.0
+offset_top = 560.0
+offset_right = 790.0
+offset_bottom = 632.0
+scale = Vector2(2, 2)
+focus_mode = 0
+icon = ExtResource("9_arxy8")
+flat = true
+script = ExtResource("7_ame8e")
+
+[node name="Click" type="Button" parent="Control" unique_id=2140446343]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 560.0
+offset_right = 436.0
+offset_bottom = 632.0
+scale = Vector2(2, 2)
 focus_mode = 0
 icon = ExtResource("6_jl3qy")
 flat = true
 script = ExtResource("7_ame8e")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="GlobalUI" parent="Control" unique_id=880697242 instance=ExtResource("10_bvevc")]
+layer = 0
+
+[connection signal="pressed" from="Control/Send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="Control/Click" to="." method="_on_click_pressed"]
