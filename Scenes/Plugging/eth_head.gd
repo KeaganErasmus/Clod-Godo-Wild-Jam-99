@@ -30,10 +30,8 @@ func click_in() -> bool:
 	return false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("can be clicked in")
 	can_be_clicked_in = true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	print("cant be clicked in")
 	can_be_clicked_in = false

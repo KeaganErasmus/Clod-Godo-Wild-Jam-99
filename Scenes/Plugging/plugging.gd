@@ -2,7 +2,7 @@ extends Node2D
 
 @export var move_speed: int = 5
 
-var num_active_ports: int = 4
+var num_active_ports: int = 2
 var used = []
 
 var starting_positions = [
@@ -13,52 +13,54 @@ var starting_positions = [
 ]
 
 var heads: Array[Node]
+var all_heads_clicked: bool = false
+var amount_clicked: int = 0
 
-@onready var top_ports = $PortsTop.get_children()
-@onready var bot_ports = $PortsBot.get_children()
+@onready var top_row_ports = $PortsTop/TopRow.get_children()
+@onready var bot_row_ports = $PortsTop/BotRow.get_children()
+
+@onready var b_top_row_ports = $PortsBot/TopRow.get_children()
+@onready var b_bot_row_ports = $PortsBot/BotRow.get_children()
 
 @onready var line1 = $Line/Line2D
 @onready var line2 = $Line/Line2D2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_active_ports()
+	set_ports()
+	reset_lines()
 	heads = $EthHeads.get_children()
-
-	line1.clear_points()
-	line1.add_point($EthHeads/EthHead.position, 0)
-	line1.add_point($EthHeads/EthHead4.position, 1)
-	line1.hide()
-
-	line2.clear_points()
-	line2.add_point($EthHeads/EthHead2.position, 0)
-	line2.add_point($EthHeads/EthHead3.position, 1)
-	line2.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-
 	if Input.is_action_just_pressed("ui_select"):
 		for head in heads:
-			head.click_in()
+			if head.click_in():
+				amount_clicked += 1
 
 	for head in heads:
 		if head.position.x <= 0:
 			reset_head_position(head)
 
-	set_ative_head()
+	set_active_head()
 	draw_connections()
 
-func set_active_ports():
+	if all_heads_clicked_in():
+		if check_itersection():
+			reset_heads()
+			reset_lines()
+		else:
+			pass
+
+func set_ports() -> void:
 	var active_ports: int = 0
 	var index: int = 0
 
-	for port in top_ports:
-		index = randi_range(0, top_ports.size() - 1)
-
+	for port in top_row_ports:
+		index = randi_range(0, top_row_ports.size() - 1)
 		if !used.has(index):
 			used.append(index)
-			top_ports[index].set_state(true)
+			top_row_ports[index].set_state(true)
 			active_ports += 1
 
 		if active_ports >= num_active_ports:
@@ -67,18 +69,43 @@ func set_active_ports():
 	used.clear()
 	active_ports = 0
 
-	for port in bot_ports:
-		index = randi_range(0, bot_ports.size() - 1)
-
+	for port in bot_row_ports:
+		index = randi_range(0, bot_row_ports.size() - 1)
 		if !used.has(index):
 			used.append(index)
-			bot_ports[index].set_state(true)
+			bot_row_ports[index].set_state(true)
 			active_ports += 1
 
 		if active_ports >= num_active_ports:
 			break
 
-func set_ative_head():
+	used.clear()
+	active_ports = 0
+
+	for port in b_top_row_ports:
+		index = randi_range(0, b_top_row_ports.size() - 1)
+		if !used.has(index):
+			used.append(index)
+			b_top_row_ports[index].set_state(true)
+			active_ports += 1
+
+		if active_ports >= num_active_ports:
+			break
+
+	used.clear()
+	active_ports = 0
+
+	for port in b_bot_row_ports:
+		index = randi_range(0, b_bot_row_ports.size() - 1)
+		if !used.has(index):
+			used.append(index)
+			b_bot_row_ports[index].set_state(true)
+			active_ports += 1
+
+		if active_ports >= num_active_ports:
+			break
+
+func set_active_head():
 	if Input.is_action_just_pressed("num_1"):
 		$EthHeads/EthHead.set_active_state(true)
 	if Input.is_action_just_pressed("num_2"):
@@ -112,3 +139,45 @@ func draw_connections():
 		line2.set_point_position(0, line_start_pos)
 		line2.set_point_position(1, line_end_pos)
 		line2.show()
+
+func check_itersection() -> bool:
+	var p1: Vector2 = $EthHeads/EthHead/OffsetPos.global_position - line1.global_position
+	var p2: Vector2 = $EthHeads/EthHead4/OffsetPos.global_position - line1.global_position
+
+	var p3: Vector2 = $EthHeads/EthHead2/OffsetPos.global_position - line1.global_position
+	var p4: Vector2 = $EthHeads/EthHead3/OffsetPos.global_position - line1.global_position
+
+	var intersect_point = Geometry2D.segment_intersects_segment(p1, p2, p3, p4)
+
+	if intersect_point:
+		return true
+
+	return false
+
+func all_heads_clicked_in() -> bool:
+	var amount: int = 0
+
+	for head in heads:
+		if head.get_clicked_in_state():
+			amount = amount + 1
+
+	if amount >= 4:
+		return true
+
+	return false
+
+func reset_heads() -> void:
+	for head in heads:
+		reset_head_position(head)
+		head.clicked_in = false
+
+func reset_lines() -> void:
+	line1.clear_points()
+	line1.add_point(Vector2(0, 0), 0)
+	line1.add_point(Vector2(100, 0), 1)
+	line1.hide()
+
+	line2.clear_points()
+	line2.add_point(Vector2(300, 0), 0)
+	line2.add_point(Vector2(400, 0), 1)
+	line2.hide()
