@@ -1,0 +1,36 @@
+extends Node2D
+
+var rng = RandomNumberGenerator.new()
+
+@onready var data_center_area = $Area2D/CollisionShape2D
+var data_center_scene = load("res://Scenes/transition/data_center.tscn")
+
+func _ready() -> void:
+	var data_center_area_rect = data_center_area.shape.get_rect()
+	
+	var area_min_x = data_center_area_rect.position.x
+	var area_max_x = data_center_area_rect.end.x
+	#print(str(area_min_x) + " " + str(area_max_x))
+	
+	var area_min_y = data_center_area_rect.position.y
+	var area_max_y = data_center_area_rect.end.y
+	#print(str(area_min_y) + " " + str(area_max_y))
+
+	# Spawn already existing data centers
+	for data_center_pos in Global.data_center_list:
+		_spawn_data_center(data_center_pos.x, data_center_pos.y)
+
+	# Spawn new data centers and add them to the list
+	for i in Global.data_center_count - Global.data_center_list.size():
+		var random_x = rng.randf_range(area_min_x, area_max_x)
+		var random_y = rng.randf_range(area_min_y, area_max_y)
+		#print(str(random_x) + " " + str(random_y))
+		
+		_spawn_data_center(random_x, random_y)
+		Global.data_center_list.append(Vector2(random_x, random_y))
+	
+func _spawn_data_center(x, y):
+	var data_center = data_center_scene.instantiate()
+	$Area2D/DataCenters.add_child(data_center)
+	data_center.position = Vector2(x, y)
+	

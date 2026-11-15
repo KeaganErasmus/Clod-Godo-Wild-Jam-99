@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="wild jam 99"
+run/main_scene="uid://d4kxxajbmml5d"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://c2cc1j2h0dx5s"
+GlobalController="*uid://cm2vothigvhnj"
 
 [display]
 

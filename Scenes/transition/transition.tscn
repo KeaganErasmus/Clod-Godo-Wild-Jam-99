@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dibk1q41y5idt"]
+
+[ext_resource type="Texture2D" uid="uid://b5t3kvhooudfh" path="res://Scenes/transition/art/kaikoura.png" id="1_kf3f5"]
+[ext_resource type="Script" uid="uid://dlg0roic52g74" path="res://Scenes/transition/transition.gd" id="1_rkbkv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(1280, 584.5)
+
+[node name="Transition" type="Node2D" unique_id=1681195250]
+script = ExtResource("1_rkbkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=410792413]
+position = Vector2(640, 359.74997)
+scale = Vector2(2, 1.6873536)
+texture = ExtResource("1_kf3f5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=401423528]
+
+[node name="DataCenters" type="Node2D" parent="Area2D" unique_id=470357474]
+position = Vector2(640, 428.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1930125630]
+position = Vector2(640, 428.75)
+shape = SubResource("RectangleShape2D_ke0wg")

@@ -228,11 +228,15 @@ position = Vector2(640, 820)
 shape = SubResource("RectangleShape2D_mduoy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1222740851]
-wait_time = 0.5
 autostart = true
 
 [node name="StackingUI" parent="." unique_id=1248863749 instance=ExtResource("7_m5enb")]
 
+[node name="NextSceneDelay" type="Timer" parent="." unique_id=1763549496]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="servers_mounted" from="StackRack" to="." method="_on_stack_rack_servers_mounted"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="NextSceneDelay" to="." method="_on_next_scene_delay_timeout"]
