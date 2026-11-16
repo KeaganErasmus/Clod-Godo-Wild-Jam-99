@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://lmdqwthmqaua"]
+
+[ext_resource type="Texture2D" uid="uid://bs6uptc6p5bov" path="res://Scenes/digging/art/drill.png" id="1_hfdln"]
+
+[node name="Drill" type="CharacterBody2D" unique_id=668374361]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=848250358]
+texture_filter = 1
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_hfdln")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1850193615]
+scale = Vector2(0.75, 0.75)
+polygon = PackedVector2Array(0, 48, -32, -16, -32, -48, 33, -48, 32, -14, 1, 48)

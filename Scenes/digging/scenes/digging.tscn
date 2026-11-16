@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b8pwrdr0co4lx"]
+
+[ext_resource type="PackedScene" uid="uid://c1f7687vd81x6" path="res://Scenes/digging/scenes/drill_machine.tscn" id="1_sj24a"]
+[ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="2_ldt0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8s5"]
+size = Vector2(1280, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj24a"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldt0o"]
+size = Vector2(20, 720)
+
+[node name="Digging" type="Node2D" unique_id=1079574817]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=908026522]
+position = Vector2(640, 0)
+collision_mask = 7
+
+[node name="FloorWall" type="CollisionShape2D" parent="Floor" unique_id=1849747686]
+position = Vector2(0, 230)
+shape = SubResource("RectangleShape2D_jq8s5")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/FloorWall" unique_id=645418487]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.5
+offset_top = -50.0
+offset_right = 640.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftWall" type="CollisionShape2D" parent="Floor" unique_id=849191988]
+position = Vector2(-653, 0)
+shape = SubResource("RectangleShape2D_sj24a")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/LeftWall" unique_id=1542566125]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -360.0
+offset_right = 10.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftWall2" type="CollisionShape2D" parent="Floor" unique_id=530977339]
+position = Vector2(650, 0)
+shape = SubResource("RectangleShape2D_ldt0o")
+
+[node name="ColorRect" type="ColorRect" parent="Floor/LeftWall2" unique_id=921550610]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -360.0
+offset_right = 10.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="DrillBody" parent="." unique_id=888981149 instance=ExtResource("1_sj24a")]
+position = Vector2(636, 64.74)
+
+[node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("2_ldt0o")]

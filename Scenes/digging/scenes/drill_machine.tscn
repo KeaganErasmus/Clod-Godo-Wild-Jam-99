@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c1f7687vd81x6"]
+
+[ext_resource type="Texture2D" uid="uid://dc6e0jmcpaer0" path="res://Scenes/digging/art/drill body.png" id="1_52rsq"]
+[ext_resource type="Script" uid="uid://c444urkx14es7" path="res://Scenes/digging/scenes/drill_machine.gd" id="1_tiw04"]
+[ext_resource type="PackedScene" uid="uid://vokvvt8elxqi" path="res://Scenes/digging/scenes/wheel.tscn" id="2_e0uk5"]
+[ext_resource type="PackedScene" uid="uid://lmdqwthmqaua" path="res://Scenes/digging/scenes/drill.tscn" id="4_vycd4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mduoy"]
+bg_color = Color(0.14333999, 0.14334002, 0.14333996, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke0wg"]
+bg_color = Color(5.9200825e-06, 0.71449417, 0.42173263, 1)
+
+[node name="DrillBody" type="RigidBody2D" unique_id=888981149]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_tiw04")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=977128880]
+texture_filter = 1
+scale = Vector2(0.5, 0.25)
+texture = ExtResource("1_52rsq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=557643798]
+position = Vector2(-2.1457672e-06, 6.6450596)
+scale = Vector2(0.5, 0.29010907)
+polygon = PackedVector2Array(-160, -161, -160, 160, -129, 160, -127.99999, -105.63289, 128, -105.63289, 128, 160, 160, 160, 160, -160.89046)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=338306621]
+position = Vector2(-72, 53)
+node_a = NodePath("..")
+node_b = NodePath("../Wheel")
+
+[node name="Wheel" parent="." unique_id=1385261643 instance=ExtResource("2_e0uk5")]
+position = Vector2(-72, 53)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="." unique_id=302329584]
+position = Vector2(74, 53)
+node_a = NodePath("..")
+node_b = NodePath("../Wheel2")
+
+[node name="Wheel2" parent="." unique_id=384418113 instance=ExtResource("2_e0uk5")]
+position = Vector2(74, 53)
+
+[node name="Drill" parent="." unique_id=668374361 instance=ExtResource("4_vycd4")]
+position = Vector2(0, 12)
+
+[node name="DrillHome" type="Marker2D" parent="." unique_id=1308200103]
+position = Vector2(0, 12)
+
+[node name="DrillChargeBar" type="ProgressBar" parent="." unique_id=449899331]
+offset_left = -64.0
+offset_top = -37.0
+offset_right = 64.0
+offset_bottom = -26.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mduoy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ke0wg")
+show_percentage = false
