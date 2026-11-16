@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://drhyt1ky4ohlt"]
+
+[ext_resource type="Texture2D" uid="uid://b60olx0o17k6h" path="res://Scenes/Chopping/art/gun.png" id="1_31rue"]
+[ext_resource type="Script" uid="uid://csgbihrh7c7wt" path="res://Scenes/Chopping/gun.gd" id="1_7718m"]
+
+[node name="Gun" type="Node2D" unique_id=919306125]
+script = ExtResource("1_7718m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1655401698]
+rotation = 1.5707964
+texture = ExtResource("1_31rue")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=2034679637]

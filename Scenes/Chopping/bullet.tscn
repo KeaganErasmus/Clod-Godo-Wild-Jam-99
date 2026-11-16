@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cnd5qtskte8d0"]
+
+[ext_resource type="Texture2D" uid="uid://c0ilb0t7qpkbj" path="res://icon.svg" id="1_fre8n"]
+[ext_resource type="Script" uid="uid://57yw0d8kf7cd" path="res://Scenes/Chopping/bullet.gd" id="1_lpksx"]
+
+[node name="Bullet" type="Node2D" unique_id=906484404]
+script = ExtResource("1_lpksx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2119929796]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_fre8n")
