@@ -12,6 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += target_pos * shot_speed * delta
+	$Sprite2D.rotate(10 * delta)
 
 func set_target(target: Vector2):
 	target_pos = target

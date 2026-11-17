@@ -1,14 +1,23 @@
 [gd_scene format=3 uid="uid://dujwgv30ojduh"]
 
-[ext_resource type="PackedScene" uid="uid://dyvgammm182k2" path="res://Scenes/Chopping/axe.tscn" id="1_1yfpt"]
 [ext_resource type="Script" uid="uid://r7lsj42xp7m8" path="res://Scenes/Chopping/chopping.gd" id="1_uxvc8"]
 [ext_resource type="PackedScene" uid="uid://drhyt1ky4ohlt" path="res://Scenes/Chopping/gun.tscn" id="3_r2x86"]
 
 [node name="Chopping" type="Node2D" unique_id=175067066]
 script = ExtResource("1_uxvc8")
 
-[node name="Axe" parent="." unique_id=826971036 instance=ExtResource("1_1yfpt")]
-visible = false
-
 [node name="Gun" parent="." unique_id=919306125 instance=ExtResource("3_r2x86")]
 position = Vector2(616, 661)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1421838394]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[node name="p1" type="Marker2D" parent="." unique_id=1172761991]
+position = Vector2(27, 8)
+
+[node name="p2" type="Marker2D" parent="." unique_id=1943387901]
+position = Vector2(1260, 372)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
