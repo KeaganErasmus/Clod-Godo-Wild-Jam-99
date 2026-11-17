@@ -3,8 +3,16 @@
 [ext_resource type="Script" uid="uid://57yw0d8kf7cd" path="res://Scenes/Chopping/bullet.gd" id="1_lpksx"]
 [ext_resource type="Texture2D" uid="uid://bo1hlfe7ydu56" path="res://Scenes/Chopping/art/saw-blade.png" id="2_lpksx"]
 
-[node name="Bullet" type="Node2D" unique_id=906484404]
+[sub_resource type="CircleShape2D" id="CircleShape2D_il1na"]
+radius = 32.06244
+
+[node name="Bullet" type="Node2D" unique_id=906484404 groups=["Bullets"]]
 script = ExtResource("1_lpksx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2119929796]
 texture = ExtResource("2_lpksx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1671062159]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1840115665]
+shape = SubResource("CircleShape2D_il1na")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bwgf3ca7d8ccj"]
+
+[ext_resource type="Script" uid="uid://cyyy1xiffc47q" path="res://Scenes/Chopping/chopping_ui.gd" id="1_317wk"]
+
+[node name="ChoppingUI" type="CanvasLayer" unique_id=1574637942]
+layer = 2
+script = ExtResource("1_317wk")
+
+[node name="FlavourTextLabel" type="Label" parent="." unique_id=1443790431]
+offset_top = 74.0
+offset_right = 200.0
+offset_bottom = 97.0
+text = "Yipeeee we killed all trees"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1181412220]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TChoppedLabel" type="Label" parent="MarginContainer" unique_id=1614512291]
+layout_mode = 2
+text = "Trees Chopped: 6/6"

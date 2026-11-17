@@ -6,6 +6,7 @@ var transition_scene = preload("res://Scenes/transition/transition.tscn")
 var start_menu_scene = preload("res://Scenes/menu/starting_menu.tscn")
 var you_lose_scene = preload("res://Scenes/menu/you_lose.tscn")
 var digging_scene = preload("res://Scenes/digging/scenes/digging.tscn")
+var chopping_scene = preload("res://Scenes/Chopping/chopping.tscn")
 
 var default_scene = start_menu_scene
 
@@ -27,9 +28,11 @@ var current_time_left: float # you lose when you run out
 var server_quota: int
 var is_timer_active: bool
 var water_quota: int
+var tree_quota: int
+
 
 func _reset_global_variables():
-	day_scene_order = [stacking_scene, plugging_scene, digging_scene]
+	day_scene_order = [stacking_scene, plugging_scene, digging_scene, chopping_scene]
 	current_scene_index = 0
 	data_center_list = [] # persist data center positions in transition scene
 	days_elapsed = 1
@@ -41,6 +44,7 @@ func _reset_global_variables():
 	server_quota = 5 # starts at 3 but can go up
 	is_timer_active = false
 	water_quota = 5
+	tree_quota = 5
 
 
 func _ready() -> void:
@@ -104,3 +108,8 @@ func _stop_global_timer():
 
 func _lose_game():
 	get_tree().change_scene_to_packed.call_deferred(you_lose_scene)
+
+########################################
+###          GLOBAL SIGNALS          ###
+########################################
+signal tree_killed
