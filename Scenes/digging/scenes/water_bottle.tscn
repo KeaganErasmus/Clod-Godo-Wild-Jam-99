@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bitnr30gh2hcl"]
+
+[ext_resource type="Texture2D" uid="uid://cohbrma5l1mh8" path="res://Scenes/digging/art/water.png" id="1_3jqsb"]
+[ext_resource type="Script" uid="uid://bx4l8jci4obgw" path="res://Scenes/digging/scenes/water_bottle.gd" id="1_4ipva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ipva"]
+size = Vector2(24, 62)
+
+[node name="WaterBottle" type="Area2D" unique_id=1430006373]
+collision_mask = 4
+script = ExtResource("1_4ipva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=375395439]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4ipva")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1943254319]
+texture_filter = 1
+texture = ExtResource("1_3jqsb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,6 +5,7 @@ var plugging_scene = preload("res://Scenes/Plugging/plugging.tscn")
 var transition_scene = preload("res://Scenes/transition/transition.tscn")
 var start_menu_scene = preload("res://Scenes/menu/starting_menu.tscn")
 var you_lose_scene = preload("res://Scenes/menu/you_lose.tscn")
+var digging_scene = preload("res://Scenes/digging/scenes/digging.tscn")
 
 var default_scene = start_menu_scene
 
@@ -25,9 +26,10 @@ var timer_drain_rate: float
 var current_time_left: float # you lose when you run out
 var server_quota: int
 var is_timer_active: bool
+var water_quota: int
 
 func _reset_global_variables():
-	day_scene_order = [stacking_scene, plugging_scene]
+	day_scene_order = [stacking_scene, plugging_scene, digging_scene]
 	current_scene_index = 0
 	data_center_list = [] # persist data center positions in transition scene
 	days_elapsed = 1
@@ -38,6 +40,7 @@ func _reset_global_variables():
 	current_time_left = max_time_left # you lose when you run out
 	server_quota = 5 # starts at 3 but can go up
 	is_timer_active = false
+	water_quota = 5
 
 
 func _ready() -> void:

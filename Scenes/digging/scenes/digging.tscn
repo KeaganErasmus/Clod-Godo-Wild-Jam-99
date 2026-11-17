@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b8pwrdr0co4lx"]
 
+[ext_resource type="Script" uid="uid://q0j3b0xgpqym" path="res://Scenes/digging/scenes/digging.gd" id="1_6acvb"]
 [ext_resource type="PackedScene" uid="uid://c1f7687vd81x6" path="res://Scenes/digging/scenes/drill_machine.tscn" id="1_sj24a"]
 [ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="2_ldt0o"]
 
@@ -12,7 +13,11 @@ size = Vector2(20, 720)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldt0o"]
 size = Vector2(20, 720)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
+size = Vector2(1153, 381)
+
 [node name="Digging" type="Node2D" unique_id=1079574817]
+script = ExtResource("1_6acvb")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=908026522]
 position = Vector2(640, 0)
@@ -75,7 +80,32 @@ grow_vertical = 2
 color = Color(0.21, 0.21, 0.21, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("2_ldt0o")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=320297195]
+
+[node name="WaterArea" type="CollisionShape2D" parent="Area2D" unique_id=1643832802]
+position = Vector2(642.5, 475.5)
+shape = SubResource("RectangleShape2D_ke0wg")
+
+[node name="Waters" type="Node2D" parent="Area2D" unique_id=1709954904]
+position = Vector2(642, 475)
+
 [node name="DrillBody" parent="." unique_id=888981149 instance=ExtResource("1_sj24a")]
 position = Vector2(636, 64.74)
 
-[node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("2_ldt0o")]
+[node name="WinDelayTimer" type="Timer" parent="." unique_id=11878653]
+wait_time = 0.5
+
+[node name="WinLabel" type="Label" parent="." unique_id=903146126]
+offset_left = 294.0
+offset_top = 389.0
+offset_right = 990.0
+offset_bottom = 542.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 82
+text = "WATER DEPLETED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="WinDelayTimer" to="." method="_on_win_delay_timer_timeout"]
