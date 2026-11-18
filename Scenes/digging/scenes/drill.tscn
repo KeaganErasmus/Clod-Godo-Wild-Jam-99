@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://lmdqwthmqaua"]
 
 [ext_resource type="Texture2D" uid="uid://bs6uptc6p5bov" path="res://Scenes/digging/art/drill.png" id="1_hfdln"]
+[ext_resource type="Script" uid="uid://dk2xvystsd48n" path="res://Scenes/digging/scenes/drill.gd" id="1_yc5yn"]
+
+[sub_resource type="Curve" id="Curve_mduoy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ke0wg"]
+offsets = PackedFloat32Array(0, 0.31178162, 0.7054598, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.8956159, 1, 1, 1, 0)
 
 [node name="Drill" type="CharacterBody2D" unique_id=668374361]
 collision_layer = 4
 collision_mask = 4
+script = ExtResource("1_yc5yn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=848250358]
 texture_filter = 1
@@ -14,3 +24,21 @@ texture = ExtResource("1_hfdln")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1850193615]
 scale = Vector2(0.75, 0.75)
 polygon = PackedVector2Array(0, 48, -32, -16, -32, -48, 33, -48, 32, -14, 1, 48)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=925096184]
+position = Vector2(0, 36)
+emitting = false
+amount = 200
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 328.94
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_mduoy")
+color = Color(0.57923716, 0.47621554, 0.38017902, 1)
+color_ramp = SubResource("Gradient_ke0wg")

@@ -19,7 +19,6 @@ magnet_speed = 300
 
 [node name="ChainLine" type="Line2D" parent="Chain" unique_id=867243618]
 texture = ExtResource("3_r3w3q")
-texture_mode = 1
 
 [node name="Magnet" parent="Chain" unique_id=948084818 instance=ExtResource("6_rf2it")]
 position = Vector2(0, 240)

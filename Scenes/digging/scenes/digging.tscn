@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://q0j3b0xgpqym" path="res://Scenes/digging/scenes/digging.gd" id="1_6acvb"]
 [ext_resource type="PackedScene" uid="uid://c1f7687vd81x6" path="res://Scenes/digging/scenes/drill_machine.tscn" id="1_sj24a"]
 [ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="2_ldt0o"]
+[ext_resource type="Texture2D" uid="uid://byliybcbn6v7a" path="res://Scenes/digging/art/digging bg.png" id="2_xlc85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8s5"]
 size = Vector2(1280, 100)
@@ -39,7 +40,7 @@ offset_right = 640.5
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.21, 0.21, 0.21, 1)
+color = Color(0.21, 0.21, 0.21, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftWall" type="CollisionShape2D" parent="Floor" unique_id=849191988]
@@ -80,7 +81,16 @@ grow_vertical = 2
 color = Color(0.21, 0.21, 0.21, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="BG" type="Sprite2D" parent="." unique_id=2135899217]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(10, 10)
+texture = ExtResource("2_xlc85")
+
 [node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("2_ldt0o")]
+
+[node name="DrillBody" parent="." unique_id=888981149 instance=ExtResource("1_sj24a")]
+position = Vector2(636, 109.435)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=320297195]
 
@@ -90,9 +100,6 @@ shape = SubResource("RectangleShape2D_ke0wg")
 
 [node name="Waters" type="Node2D" parent="Area2D" unique_id=1709954904]
 position = Vector2(642, 475)
-
-[node name="DrillBody" parent="." unique_id=888981149 instance=ExtResource("1_sj24a")]
-position = Vector2(636, 64.74)
 
 [node name="WinDelayTimer" type="Timer" parent="." unique_id=11878653]
 wait_time = 0.5

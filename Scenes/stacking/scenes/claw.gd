@@ -14,6 +14,8 @@ func _ready() -> void:
 	locked_y = global_position.y
 	line_start_pos = $AnchorMarker.position
 	line_end_pos = $Chain/Magnet.position
+	
+	line_end_pos.y -= 15
 	#print("line_start_pos: " + str(line_start_pos))
 	#print("line_end_pos: " + str(line_end_pos))
 	$Chain/ChainLine.add_point(line_start_pos)
@@ -23,6 +25,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	line_start_pos = $AnchorMarker.position
 	line_end_pos = $Chain/Magnet.position
+	
+	line_end_pos.y -= 15
 
 	#print("line_start_pos: " + str(line_start_pos))
 	#print("line_end_pos: " + str(line_end_pos))

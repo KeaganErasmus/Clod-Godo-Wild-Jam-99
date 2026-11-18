@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dc6e0jmcpaer0" path="res://Scenes/digging/art/drill body.png" id="1_52rsq"]
 [ext_resource type="Script" uid="uid://c444urkx14es7" path="res://Scenes/digging/scenes/drill_machine.gd" id="1_tiw04"]
+[ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="2_a1h8q"]
 [ext_resource type="PackedScene" uid="uid://vokvvt8elxqi" path="res://Scenes/digging/scenes/wheel.tscn" id="2_e0uk5"]
 [ext_resource type="PackedScene" uid="uid://lmdqwthmqaua" path="res://Scenes/digging/scenes/drill.tscn" id="4_vycd4"]
 
@@ -15,6 +16,11 @@ bg_color = Color(5.9200825e-06, 0.71449417, 0.42173263, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_tiw04")
+
+[node name="DrillLine" type="Line2D" parent="." unique_id=1312818121]
+texture_filter = 1
+width = 38.0
+texture = ExtResource("2_a1h8q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=977128880]
 texture_filter = 1
@@ -47,6 +53,9 @@ position = Vector2(0, 12)
 
 [node name="DrillHome" type="Marker2D" parent="." unique_id=1308200103]
 position = Vector2(0, 12)
+
+[node name="LineHome" type="Marker2D" parent="." unique_id=1582744927]
+position = Vector2(0, -24)
 
 [node name="DrillChargeBar" type="ProgressBar" parent="." unique_id=449899331]
 offset_left = -64.0
