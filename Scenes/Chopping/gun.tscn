@@ -3,8 +3,34 @@
 [ext_resource type="Texture2D" uid="uid://b60olx0o17k6h" path="res://Scenes/Chopping/art/gun.png" id="1_31rue"]
 [ext_resource type="Script" uid="uid://csgbihrh7c7wt" path="res://Scenes/Chopping/gun.gd" id="1_7718m"]
 
+[sub_resource type="Gradient" id="Gradient_7718m"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Gun" type="Node2D" unique_id=919306125]
 script = ExtResource("1_7718m")
+
+[node name="MuzzleParticle" type="CPUParticles2D" parent="." unique_id=163968320]
+position = Vector2(29, 0)
+emitting = false
+amount = 50
+lifetime = 0.25
+explosiveness = 1.0
+randomness = 0.57
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 151.76
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_max = 20.0
+color = Color(0.70109105, 0.6162283, 0.19898272, 1)
+color_ramp = SubResource("Gradient_7718m")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1655401698]
 rotation = 1.5707964

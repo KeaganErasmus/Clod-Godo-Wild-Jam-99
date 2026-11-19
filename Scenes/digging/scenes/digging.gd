@@ -24,7 +24,7 @@ func _ready() -> void:
 	for i in Global.water_quota:
 		var random_x = rng.randf_range(area_min_x, area_max_x)
 		var random_y = rng.randf_range(area_min_y, area_max_y)
-		
+
 		var water_bottle = water_bottle_scene.instantiate()
 		water_bottle.connect('water_hit', _on_water_hit)
 		$Area2D/Waters.add_child(water_bottle)
@@ -32,21 +32,21 @@ func _ready() -> void:
 		var random_scale = rng.randf_range(1.0, 3.0)
 		water_bottle.scale = Vector2(random_scale, random_scale)
 		water_bottle.rotation = rng.randf_range(0,360)
-		
+
 	Global._start_global_timer()
 
 func _process(delta: float) -> void:
 	if water_count >= Global.water_quota and not won:
 		won = true
 		_win_digging()
-		
+
 func _on_water_hit():
 	water_count += 1
-	
+
 func _win_digging():
 	win_label.visible = true
 	Global._stop_global_timer()
 	$WinDelayTimer.start()
-		
+
 func _on_win_delay_timer_timeout() -> void:
 	Global._next_scene()

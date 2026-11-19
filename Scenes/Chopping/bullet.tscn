@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_il1na"]
 radius = 32.06244
 
+[sub_resource type="Gradient" id="Gradient_lpksx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Bullet" type="Node2D" unique_id=906484404 groups=["Bullets"]]
 script = ExtResource("1_lpksx")
 
@@ -16,3 +19,25 @@ texture = ExtResource("2_lpksx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1840115665]
 shape = SubResource("CircleShape2D_il1na")
+
+[node name="MuzzleParticle" type="CPUParticles2D" parent="." unique_id=471477202]
+emitting = false
+amount = 50
+lifetime = 0.25
+explosiveness = 1.0
+randomness = 0.57
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 151.76
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_max = 20.0
+color = Color(0.70109105, 0.6162283, 0.19898272, 1)
+color_ramp = SubResource("Gradient_lpksx")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

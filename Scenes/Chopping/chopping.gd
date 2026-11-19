@@ -40,6 +40,7 @@ func shoot(target: Vector2) -> void:
 	add_child(bullet)
 
 	bullet.position = gun.get_muzzle_pos()
+	gun.emit_particles()
 	bullet.set_target(target)
 
 func spawn_tree() -> void:
