@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://q0j3b0xgpqym" path="res://Scenes/digging/scenes/digging.gd" id="1_6acvb"]
 [ext_resource type="PackedScene" uid="uid://c1f7687vd81x6" path="res://Scenes/digging/scenes/drill_machine.tscn" id="1_sj24a"]
 [ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="2_ldt0o"]
-[ext_resource type="Texture2D" uid="uid://byliybcbn6v7a" path="res://Scenes/digging/art/digging bg.png" id="2_xlc85"]
+[ext_resource type="Texture2D" uid="uid://chyb1tm4xxux2" path="res://Scenes/digging/art/digging bg controls.png" id="2_xlc85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jq8s5"]
 size = Vector2(1280, 100)

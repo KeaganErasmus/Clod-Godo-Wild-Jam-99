@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+MusicPlayer="*uid://o1leb3decoy2"
 Global="*uid://c2cc1j2h0dx5s"
 GlobalController="*uid://cm2vothigvhnj"
 Easings="*uid://ch6aildxub0v1"

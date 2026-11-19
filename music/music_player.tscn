@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://o1leb3decoy2"]
+
+[ext_resource type="Script" uid="uid://cihglq771eyfn" path="res://music/music_player.gd" id="1_0isv4"]
+[ext_resource type="AudioStream" uid="uid://ci512dnnmnptf" path="res://music/clod intro.mp3" id="2_jipuu"]
+[ext_resource type="AudioStream" uid="uid://dd6fsqne5ehw4" path="res://music/clod gameplay.mp3" id="3_mmuvd"]
+[ext_resource type="AudioStream" uid="uid://xcv5t5tb7o6" path="res://music/clod transition.mp3" id="4_78lc6"]
+
+[node name="MusicPlayer" type="Node" unique_id=1173244419]
+script = ExtResource("1_0isv4")
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="." unique_id=1344881921]
+stream = ExtResource("2_jipuu")
+parameters/looping = true
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="." unique_id=137601910]
+stream = ExtResource("3_mmuvd")
+parameters/looping = true
+
+[node name="TransitionMusic" type="AudioStreamPlayer" parent="." unique_id=708460723]
+stream = ExtResource("4_78lc6")
+parameters/looping = true

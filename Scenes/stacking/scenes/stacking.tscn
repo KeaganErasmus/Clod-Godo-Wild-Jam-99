@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcqinmk8k8vpo" path="res://Scenes/stacking/scripts/stacking.gd" id="1_460fq"]
 [ext_resource type="PackedScene" uid="uid://bjxecrkw61svq" path="res://Scenes/stacking/scenes/stack_rack.tscn" id="2_p4iy0"]
-[ext_resource type="Texture2D" uid="uid://305n546hbmv1" path="res://Scenes/stacking/art/bg.png" id="2_vkrw2"]
+[ext_resource type="Texture2D" uid="uid://dbodcd8sbnc1b" path="res://Scenes/stacking/art/stacking bg.png" id="2_t5a04"]
 [ext_resource type="Texture2D" uid="uid://c1t1rgyn3rncp" path="res://Scenes/stacking/art/server chute.png" id="4_b03tl"]
 [ext_resource type="PackedScene" uid="uid://bjhnkh8p5ckgb" path="res://Scenes/stacking/scenes/claw.tscn" id="4_i4x58"]
 [ext_resource type="Texture2D" uid="uid://14heco41f0wx" path="res://Scenes/stacking/art/ramp.png" id="6_wv320"]
@@ -44,7 +44,7 @@ script = ExtResource("1_460fq")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=552049347]
 position = Vector2(640, 360)
-texture = ExtResource("2_vkrw2")
+texture = ExtResource("2_t5a04")
 
 [node name="StackRack" parent="." unique_id=736920134 instance=ExtResource("2_p4iy0")]
 position = Vector2(1049, 530)

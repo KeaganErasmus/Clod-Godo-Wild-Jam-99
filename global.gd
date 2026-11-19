@@ -52,6 +52,7 @@ func _ready() -> void:
 	Global._reset_global_timer()
 	if not dev_start_from_current_scene:
 		get_tree().change_scene_to_packed.call_deferred(default_scene)
+	MusicPlayer._play_intro_music()
 
 func _process(delta: float) -> void:
 	if is_timer_active:
@@ -60,6 +61,7 @@ func _process(delta: float) -> void:
 func _start_game():
 	_reset_global_variables()
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
+	MusicPlayer._play_gameplay_music()
 
 func _next_scene():
 	current_scene_index += 1
@@ -70,6 +72,7 @@ func _next_scene():
 	# you completed the day quota
 	if current_scene_index >= day_scene_order.size() and data_center_count >= data_center_quota:
 		get_tree().change_scene_to_packed.call_deferred(transition_scene)
+		MusicPlayer._play_transition_music()
 
 	# you created a data center but haven't met quota
 	elif current_scene_index >= day_scene_order.size() and data_center_count < data_center_quota:
@@ -88,6 +91,7 @@ func _next_day():
 
 	current_scene_index = 0
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])
+	MusicPlayer._play_gameplay_music()
 
 func _run_global_timer(delta: float):
 	current_time_left -= timer_drain_rate * delta
@@ -108,6 +112,7 @@ func _stop_global_timer():
 
 func _lose_game():
 	get_tree().change_scene_to_packed.call_deferred(you_lose_scene)
+	MusicPlayer._stop_all_music()
 
 ########################################
 ###          GLOBAL SIGNALS          ###

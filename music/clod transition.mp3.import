@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xcv5t5tb7o6"
+path="res://.godot/imported/clod transition.mp3-51b9f03b74f4b048780eb80ab9d06aa6.mp3str"
+
+[deps]
+
+source_file="res://music/clod transition.mp3"
+dest_files=["res://.godot/imported/clod transition.mp3-51b9f03b74f4b048780eb80ab9d06aa6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
