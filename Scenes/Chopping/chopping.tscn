@@ -4,9 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bwgf3ca7d8ccj" path="res://Scenes/Chopping/chopping_ui.tscn" id="3_qgshr"]
 [ext_resource type="PackedScene" uid="uid://drhyt1ky4ohlt" path="res://Scenes/Chopping/gun.tscn" id="3_r2x86"]
 [ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="4_qgshr"]
+[ext_resource type="Texture2D" uid="uid://cydfwl2xxba80" path="res://Scenes/Chopping/art/chopping-bg.png" id="5_kuael"]
 
 [node name="Chopping" type="Node2D" unique_id=175067066]
 script = ExtResource("1_uxvc8")
+tree_spawn_timer = 2.0
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=872307794]
+position = Vector2(634, 239)
+scale = Vector2(1.2399976, 1.96)
+texture = ExtResource("5_kuael")
 
 [node name="Gun" parent="." unique_id=919306125 instance=ExtResource("3_r2x86")]
 position = Vector2(616, 661)
@@ -23,6 +30,8 @@ position = Vector2(149, 254)
 position = Vector2(1229, 508)
 
 [node name="ChoppingUI" parent="." unique_id=1574637942 instance=ExtResource("3_qgshr")]
+offset = Vector2(30, 600)
+transform = Transform2D(1, 0, 0, 1, 30, 600)
 
 [node name="GlobalUI" parent="." unique_id=880697242 instance=ExtResource("4_qgshr")]
 

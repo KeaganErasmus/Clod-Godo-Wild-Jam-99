@@ -5,6 +5,24 @@ extends Node2D
 
 var active: bool = true
 
+var left: bool = false
+
+var move_speed: int = 400
+
+func _ready() -> void:
+	var rand = randi()
+	if rand % 2 == 0:
+		left = false
+	else:
+		left = true
+
+func _process(delta: float) -> void:
+	#wiggle(delta)
+	if left:
+		position.x -= move_speed * delta
+	else:
+		position.x += move_speed * delta
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var ob := area.get_parent()
 	if ob is Bullet and active:
@@ -21,3 +39,7 @@ func die() -> void:
 
 func clear() -> void:
 	queue_free()
+
+
+func wiggle(delta: float) -> void:
+	$Sprite2D.rotate(lerpf(0, 0.5, delta))

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j1c1mkqr5hid"]
 
-[ext_resource type="Texture2D" uid="uid://c0ilb0t7qpkbj" path="res://icon.svg" id="1_brfkd"]
 [ext_resource type="Script" uid="uid://cfj66rm3yqcr6" path="res://tree.gd" id="1_nnvrw"]
+[ext_resource type="Texture2D" uid="uid://c0nfftf0qegpn" path="res://Scenes/Chopping/art/tree.png" id="2_nnvrw"]
 
 [sub_resource type="Gradient" id="Gradient_nnvrw"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -34,7 +34,7 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1432806300]
-texture = ExtResource("1_brfkd")
+texture = ExtResource("2_nnvrw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=167274816]
 
