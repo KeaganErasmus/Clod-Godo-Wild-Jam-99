@@ -18,12 +18,17 @@ func _stop_other_music(current_music: AudioStreamPlayer):
 func _play_intro_music():
 	intro_music.play()
 	_stop_other_music(intro_music)
-	
+
 
 func _play_gameplay_music():
 	gameplay_music.play()
 	_stop_other_music(gameplay_music)
-	
+
 func _play_transition_music():
 	transition_music.play()
 	_stop_other_music(transition_music)
+
+func _set_music_volume(volume: float) -> void:
+	#gameplay_music.set_volume_db(volume)
+	var db = -pow(100.0 - volume, 1)
+	AudioServer.set_bus_volume_db(0, linear_to_db(volume))

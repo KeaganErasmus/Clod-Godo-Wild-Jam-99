@@ -115,6 +115,9 @@ func _lose_game():
 	get_tree().change_scene_to_packed.call_deferred(you_lose_scene)
 	MusicPlayer._stop_all_music()
 
+func _set_music_volume(value: float) -> void:
+	MusicPlayer._set_music_volume(value)
+
 ########################################
 ###          GLOBAL SIGNALS          ###
 ########################################

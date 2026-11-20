@@ -23,4 +23,15 @@ size_flags_vertical = 4
 text = "START"
 script = ExtResource("2_hytgr")
 
+[node name="MusicVolume" type="HSlider" parent="." unique_id=1146893911]
+offset_left = 451.0
+offset_top = 465.0
+offset_right = 602.0
+offset_bottom = 481.0
+scale = Vector2(2.6799974, 2.2399976)
+max_value = 1.0
+step = 0.001
+value = 1.0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="MusicVolume" to="." method="_on_music_volume_value_changed"]
