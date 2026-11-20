@@ -75,7 +75,8 @@ func _next_scene():
 		MusicPlayer._play_transition_music()
 
 	# you created a data center but haven't met quota
-	elif current_scene_index >= day_scene_order.size() and data_center_count < data_center_quota:
+	elif current_scene_index >= day_scene_order.size() and data_center_count <= data_center_quota:
+		current_scene_index = 0
 		get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
 
 	# next task
