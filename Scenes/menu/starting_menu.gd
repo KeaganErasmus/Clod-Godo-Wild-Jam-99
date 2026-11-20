@@ -5,6 +5,7 @@ func _ready() -> void:
 	Global._set_music_volume($MusicVolume.value)
 
 func _on_button_pressed() -> void:
+	MusicPlayer._play_button_click()
 	Global._start_game()
 
 

@@ -3,6 +3,7 @@ extends Node
 @onready var intro_music = $IntroMusic
 @onready var transition_music = $TransitionMusic
 @onready var gameplay_music = $GameplayMusic
+@onready var button_click = $ButtonClick
 
 @onready var music_list = [intro_music, transition_music, gameplay_music]
 
@@ -29,6 +30,7 @@ func _play_transition_music():
 	_stop_other_music(transition_music)
 
 func _set_music_volume(volume: float) -> void:
-	#gameplay_music.set_volume_db(volume)
-	var db = -pow(100.0 - volume, 1)
 	AudioServer.set_bus_volume_db(0, linear_to_db(volume))
+
+func _play_button_click() -> void:
+	button_click.play()
