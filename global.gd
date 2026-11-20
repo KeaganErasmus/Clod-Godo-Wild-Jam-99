@@ -30,6 +30,9 @@ var is_timer_active: bool
 var water_quota: int
 var tree_quota: int
 
+# Difficulty Values
+var time_increase_multiplier: float = 0.1 # 0.1 = +10% time per round
+var difficulty_multiplier: float = 0.20
 
 func _reset_global_variables():
 	day_scene_order = [stacking_scene, plugging_scene, digging_scene, chopping_scene]
@@ -41,10 +44,10 @@ func _reset_global_variables():
 	max_time_left = 60
 	timer_drain_rate = 1
 	current_time_left = max_time_left # you lose when you run out
-	server_quota = 5 # starts at 3 but can go up
+	server_quota = 3
 	is_timer_active = false
-	water_quota = 5
-	tree_quota = 5
+	water_quota = 3
+	tree_quota = 3
 
 
 func _ready() -> void:
@@ -87,8 +90,15 @@ func _next_day():
 	_reset_global_timer()
 	days_elapsed += 1
 
-	# Update Quota/Difficulty here
-	data_center_quota += days_elapsed
+	### Update Quota/Difficulty here
+	data_center_quota += 1
+	#data_center_quota += days_elapsed
+	
+	max_time_left += max_time_left * time_increase_multiplier
+	
+	server_quota += round(server_quota * difficulty_multiplier)
+	water_quota += round(water_quota * difficulty_multiplier)
+	tree_quota += round(tree_quota * difficulty_multiplier) 
 
 	current_scene_index = 0
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])

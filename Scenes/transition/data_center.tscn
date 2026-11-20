@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://v1ueor0eplqr"]
 
+[ext_resource type="Script" uid="uid://g7rhx01704uy" path="res://Scenes/transition/data_center.gd" id="1_mwe25"]
 [ext_resource type="Texture2D" uid="uid://cwksyg6knw244" path="res://Scenes/transition/art/data center.png" id="1_upcw0"]
 
 [node name="DataCenter" type="Node2D" unique_id=1220120981]
+script = ExtResource("1_mwe25")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1977657471]
 scale = Vector2(0.5, 0.5)

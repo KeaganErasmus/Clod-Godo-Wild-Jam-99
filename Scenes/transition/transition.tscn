@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dibk1q41y5idt"]
 
 [ext_resource type="Script" uid="uid://dlg0roic52g74" path="res://Scenes/transition/transition.gd" id="1_rkbkv"]
-[ext_resource type="Texture2D" uid="uid://diantxj87g6er" path="res://Scenes/transition/art/kaikoura 2.png" id="2_rkbkv"]
+[ext_resource type="Texture2D" uid="uid://dn4ssidehf65j" path="res://Scenes/transition/art/kaikoura 3.png" id="2_o3j0a"]
 [ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="3_o3j0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0wg"]
@@ -12,8 +12,8 @@ script = ExtResource("1_rkbkv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=410792413]
 position = Vector2(640, 359.74997)
-scale = Vector2(2, 1.6873536)
-texture = ExtResource("2_rkbkv")
+scale = Vector2(2, 1.676)
+texture = ExtResource("2_o3j0a")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=401423528]
 
