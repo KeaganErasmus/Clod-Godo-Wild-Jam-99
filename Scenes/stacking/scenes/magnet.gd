@@ -7,6 +7,9 @@ var attracted_bodies = []
 func _process(delta: float) -> void:
 	magnetized = true if Input.is_action_pressed("magnetize") else false
 	$MagnetArea/MagnetismCircle.visible = magnetized
+	if magnetized:
+		if !MusicPlayer.magnet_effect.is_playing():
+			MusicPlayer._play_magnet_effect()
 
 
 func _physics_process(delta: float) -> void:

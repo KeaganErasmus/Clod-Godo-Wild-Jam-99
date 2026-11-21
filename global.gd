@@ -66,7 +66,7 @@ func _start_game():
 	_reset_global_variables()
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
 	MusicPlayer._play_gameplay_music()
-	
+
 func _play_lore_scene():
 	get_tree().change_scene_to_packed.call_deferred(lore_scene)
 

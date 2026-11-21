@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://305n546hbmv1" path="res://Scenes/stacking/art/bg.png" id="2_s0n4d"]
 [ext_resource type="Texture2D" uid="uid://1kbbx00x511m" path="res://Scenes/stacking/art/server.png" id="3_kse2n"]
 [ext_resource type="PackedScene" uid="uid://17i6ahp7p813" path="res://Scenes/Plugging/eth_head.tscn" id="4_fqgmi"]
-[ext_resource type="Texture2D" uid="uid://b2kjaiedryujr" path="res://Scenes/stacking/art/chain link.png" id="5_tjg8o"]
 [ext_resource type="Texture2D" uid="uid://cd684xtdiaf36" path="res://Scenes/Plugging/art/activate-button.png" id="6_jl3qy"]
 [ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="7_ame8e"]
 [ext_resource type="Texture2D" uid="uid://wkbv8e3w8nyk" path="res://Scenes/Plugging/art/send-button.png" id="9_arxy8"]
@@ -22,12 +21,10 @@ texture = ExtResource("2_s0n4d")
 [node name="Line" type="Node" parent="." unique_id=1785607675]
 
 [node name="Line2D" type="Line2D" parent="Line" unique_id=1443917387]
-texture = ExtResource("5_tjg8o")
-texture_mode = 1
+default_color = Color(0.0627451, 0.42745098, 0.69803923, 1)
 
 [node name="Line2D2" type="Line2D" parent="Line" unique_id=33093408]
-texture = ExtResource("5_tjg8o")
-texture_mode = 1
+default_color = Color(0.0627451, 0.42745098, 0.69803923, 1)
 
 [node name="PortsTop" type="Node" parent="." unique_id=203587596]
 

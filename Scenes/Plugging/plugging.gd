@@ -217,6 +217,8 @@ func show_gigga_x() -> void:
 	var tween = create_tween()
 	tween.tween_property(gigga_x, "scale", Vector2(0, 0), 1)
 	await get_tree().create_timer(1).timeout
+	tween.kill()
+	gigga_x.scale = Vector2(5.92,4.24)
 	gigga_x.hide()
 
 func _on_send_pressed() -> void:
