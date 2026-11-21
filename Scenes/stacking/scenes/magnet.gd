@@ -10,6 +10,9 @@ func _process(delta: float) -> void:
 	if magnetized:
 		if !MusicPlayer.magnet_effect.is_playing():
 			MusicPlayer._play_magnet_effect()
+	else:
+		if MusicPlayer.magnet_effect.is_playing():
+			MusicPlayer.magnet_effect.stop()
 
 
 func _physics_process(delta: float) -> void:
