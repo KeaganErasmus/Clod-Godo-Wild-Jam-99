@@ -30,6 +30,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		die()
 
 func die() -> void:
+	MusicPlayer._play_crack_effec()
 	Global.tree_killed.emit()
 	p_emitter.emitting = true
 	$Sprite2D.hide()

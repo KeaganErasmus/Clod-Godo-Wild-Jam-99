@@ -7,6 +7,8 @@ extends Node
 @onready var button_click = $ButtonClick
 @onready var eth_click = $EthClick
 @onready var wrong_effect = $WrongEffect
+@onready var shoot_effect = $ShootEffect
+@onready var crack_effect = $CrackEffect
 
 @onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
@@ -50,3 +52,9 @@ func _play_eth_click() -> void:
 
 func _play_wrong_effec() -> void:
 	wrong_effect.play()
+
+func _play_shoot_effect() -> void:
+	shoot_effect.play()
+
+func _play_crack_effec() -> void:
+	crack_effect.play()

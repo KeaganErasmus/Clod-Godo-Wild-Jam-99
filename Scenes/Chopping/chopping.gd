@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 			#shoot(dir.normalized())
 
 func shoot(target: Vector2) -> void:
+	MusicPlayer._play_shoot_effect()
 	var bullet: Bullet = bullet_scene.instantiate()
 	add_child(bullet)
 
