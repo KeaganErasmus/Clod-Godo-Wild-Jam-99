@@ -77,6 +77,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _shoot_drill():
 	MusicPlayer._play_drill_shot()
 	MusicPlayer._play_digging_sound()
+	MusicPlayer._play_gravel_sound()
 	drilling = true
 	$Drill._digging_particles(true)
 	while drilling and drill_charge > 0.05:

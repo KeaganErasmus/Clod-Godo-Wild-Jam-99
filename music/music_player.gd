@@ -13,6 +13,8 @@ extends Node
 @onready var drill_shot = $DrillShot
 @onready var diggin_sound = $DiggingSound
 @onready var bottle_crunch_sound = $BottleCrunchSound
+@onready var water_splash_sound = $WaterSplash
+@onready var gravel_sound = $GravelSound
 
 @onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
@@ -74,3 +76,9 @@ func _play_digging_sound() -> void:
 
 func _play_bottle_crunch_sound() -> void:
 	bottle_crunch_sound.play()
+	
+func _play_water_splash_sound() -> void:
+	water_splash_sound.play()
+
+func _play_gravel_sound() -> void:
+	gravel_sound.play()

@@ -43,6 +43,7 @@ func _process(delta: float) -> void:
 
 func _on_water_hit():
 	MusicPlayer._play_bottle_crunch_sound()
+	MusicPlayer._play_water_splash_sound()
 	water_count += 1
 
 func _win_digging():
