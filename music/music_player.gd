@@ -87,7 +87,7 @@ func _play_gravel_sound() -> void:
 
 func _play_magnet_effect() -> void:
 	magnet_effect.play()
-	
+
 func _play_launcher_sound() -> void:
 	launcher_sound.play()
 

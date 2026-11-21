@@ -50,11 +50,13 @@ func _process(_delta: float) -> void:
 			reset_head_position(head)
 
 	#set_active_head()
-	if Input.is_action_just_pressed("num_1"):
-		#set_next_active_head()
-		MusicPlayer._play_wrong_effec()
-		show_gigga_x()
-		await get_tree().create_timer(1).timeout
+	#if Input.is_action_just_pressed("num_1"):
+		#MusicPlayer._play_wrong_effec()
+		#show_gigga_x()
+		#await get_tree().create_timer(1).timeout
+		#reset_heads()
+		#reset_lines()
+		#next_head_index = 0
 
 
 	draw_connections()
@@ -63,7 +65,6 @@ func _process(_delta: float) -> void:
 		if check_itersection():
 			MusicPlayer._play_wrong_effec()
 			show_gigga_x()
-			await get_tree().create_timer(1).timeout
 			reset_heads()
 			reset_lines()
 			next_head_index = 0
