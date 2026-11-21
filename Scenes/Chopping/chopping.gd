@@ -19,8 +19,9 @@ var mouse_pos: Vector2
 
 var trees_chopped: int = 0
 
+
 @export var fire_rate : float = 1
-var last_shot: float
+var last_shot: float = 0.0
 var can_shoot: bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -32,10 +33,10 @@ func _process(delta: float) -> void:
 	if trees_chopped >= Global.tree_quota:
 		win_game()
 
-	fire_rate -= delta
-	if fire_rate <= 0:
+	last_shot -= delta
+	if last_shot <= 0:
 		if Input.is_action_pressed("magnetize"):
-			fire_rate = 1
+			last_shot = fire_rate
 			var muzzle_pos : Vector2 = gun.get_muzzle_pos()
 			var dir: Vector2 =   get_viewport().get_mouse_position() - muzzle_pos
 			shoot(dir.normalized())
