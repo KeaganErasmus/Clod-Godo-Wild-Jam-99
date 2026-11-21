@@ -25,6 +25,8 @@ var amount_clicked: int = 0
 @onready var line1 = $Line/Line2D
 @onready var line2 = $Line/Line2D2
 
+@onready var gigga_x = $GiggaX
+
 var next_head_index = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -33,12 +35,14 @@ func _ready() -> void:
 	reset_lines()
 	heads = $EthHeads.get_children()
 	Global._start_global_timer()
+	gigga_x.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		for head in heads:
 			if head.click_in():
+				MusicPlayer._play_eth_click()
 				amount_clicked += 1
 
 	for head in heads:
@@ -47,12 +51,19 @@ func _process(_delta: float) -> void:
 
 	#set_active_head()
 	if Input.is_action_just_pressed("num_1"):
-		set_next_active_head()
+		#set_next_active_head()
+		MusicPlayer._play_wrong_effec()
+		show_gigga_x()
+		await get_tree().create_timer(1).timeout
+
 
 	draw_connections()
 
 	if all_heads_clicked_in():
 		if check_itersection():
+			MusicPlayer._play_wrong_effec()
+			show_gigga_x()
+			await get_tree().create_timer(1).timeout
 			reset_heads()
 			reset_lines()
 			next_head_index = 0
@@ -201,11 +212,20 @@ func reset_lines() -> void:
 	line2.add_point(Vector2(400, 0), 1)
 	line2.hide()
 
+func show_gigga_x() -> void:
+	gigga_x.show()
+	var tween = create_tween()
+	tween.tween_property(gigga_x, "scale", Vector2(0, 0), 1)
+	await get_tree().create_timer(1).timeout
+	gigga_x.hide()
 
 func _on_send_pressed() -> void:
+	MusicPlayer._play_button_click()
 	set_next_active_head()
 
 func _on_click_pressed() -> void:
+	MusicPlayer._play_button_click()
 	for head in heads:
 		if head.click_in():
 			amount_clicked += 1
+			MusicPlayer._play_eth_click()

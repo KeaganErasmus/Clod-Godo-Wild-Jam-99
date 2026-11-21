@@ -5,6 +5,8 @@ extends Node
 @onready var gameplay_music = $GameplayMusic
 @onready var you_lose_music = $YouLoseMusic
 @onready var button_click = $ButtonClick
+@onready var eth_click = $EthClick
+@onready var wrong_effect = $WrongEffect
 
 @onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
@@ -42,3 +44,9 @@ func _get_music_volume() -> float:
 
 func _play_button_click() -> void:
 	button_click.play()
+
+func _play_eth_click() -> void:
+	eth_click.play()
+
+func _play_wrong_effec() -> void:
+	wrong_effect.play()

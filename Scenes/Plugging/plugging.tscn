@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="7_ame8e"]
 [ext_resource type="Texture2D" uid="uid://wkbv8e3w8nyk" path="res://Scenes/Plugging/art/send-button.png" id="9_arxy8"]
 [ext_resource type="PackedScene" uid="uid://n7w243o1qxms" path="res://global_ui.tscn" id="10_bvevc"]
+[ext_resource type="Texture2D" uid="uid://chixiovl34oxn" path="res://Scenes/Plugging/art/baaaaaaaa.png" id="11_6vfdw"]
 
 [node name="Plugging" type="Node2D" unique_id=104426079]
 script = ExtResource("1_3a612")
@@ -149,6 +150,11 @@ texture = ExtResource("3_kse2n")
 position = Vector2(614.99994, 472)
 scale = Vector2(8, 5)
 texture = ExtResource("3_kse2n")
+
+[node name="GiggaX" type="Sprite2D" parent="." unique_id=519931019]
+position = Vector2(594, 384)
+scale = Vector2(5.92, 4.24)
+texture = ExtResource("11_6vfdw")
 
 [node name="Control" type="Control" parent="." unique_id=375629902]
 layout_mode = 3
