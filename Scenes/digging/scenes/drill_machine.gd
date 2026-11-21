@@ -44,14 +44,19 @@ func _process(delta: float) -> void:
 	if drilling and drill_charge < 1:
 		$Drill._digging_particles(false)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if drilling and drill_charge < 0.05:
 		drill_charge = 0
 		drilling = false
+		MusicPlayer.diggin_sound.set_playing(false)
 
 	var x_input = Input.get_axis("move_left", "move_right")
 	if not drilling:
+		if !MusicPlayer.car_sound.is_playing():
+			MusicPlayer._play_car_sound()
+
 		apply_impulse(Vector2(move_force * x_input, 0))
 
 	if not drilling and Input.is_action_pressed("magnetize"):
@@ -70,6 +75,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		wheel2.linear_velocity = Vector2(0,0)
 
 func _shoot_drill():
+	MusicPlayer._play_drill_shot()
+	MusicPlayer._play_digging_sound()
 	drilling = true
 	$Drill._digging_particles(true)
 	while drilling and drill_charge > 0.05:

@@ -38,9 +38,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if water_count >= Global.water_quota and not won:
 		won = true
+		MusicPlayer.diggin_sound.set_playing(false)
 		_win_digging()
 
 func _on_water_hit():
+	MusicPlayer._play_bottle_crunch_sound()
 	water_count += 1
 
 func _win_digging():

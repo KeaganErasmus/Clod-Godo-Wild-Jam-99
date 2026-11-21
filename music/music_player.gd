@@ -9,6 +9,10 @@ extends Node
 @onready var wrong_effect = $WrongEffect
 @onready var shoot_effect = $ShootEffect
 @onready var crack_effect = $CrackEffect
+@onready var car_sound = $CarSound
+@onready var drill_shot = $DrillShot
+@onready var diggin_sound = $DiggingSound
+@onready var bottle_crunch_sound = $BottleCrunchSound
 
 @onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
@@ -58,3 +62,15 @@ func _play_shoot_effect() -> void:
 
 func _play_crack_effec() -> void:
 	crack_effect.play()
+
+func _play_car_sound() -> void:
+	car_sound.play()
+
+func _play_drill_shot() -> void:
+	drill_shot.play()
+
+func _play_digging_sound() -> void:
+	diggin_sound.play()
+
+func _play_bottle_crunch_sound() -> void:
+	bottle_crunch_sound.play()
