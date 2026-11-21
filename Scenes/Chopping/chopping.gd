@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 
 func shoot(target: Vector2) -> void:
 	MusicPlayer._play_shoot_effect()
+	MusicPlayer._play_launcher_sound()
 	var bullet: Bullet = bullet_scene.instantiate()
 	add_child(bullet)
 
@@ -71,7 +72,7 @@ func _on_spawn_timer_timeout() -> void:
 
 func win_game() -> void:
 	Global._stop_global_timer()
-	chop_ui.set_flavour_text("ALL TREES BURNED>>>>YIPPPEEE")
+	chop_ui.set_flavour_text("THE TREES ARE GONE>>>>YIPPPEEE")
 	spawn_timer.stop()
 	clear_trees()
 	await get_tree().create_timer(2).timeout

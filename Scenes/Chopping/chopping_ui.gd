@@ -2,7 +2,7 @@ class_name ChopUI
 extends CanvasLayer
 
 @onready var label = $MarginContainer/TChoppedLabel
-@onready var flavour_text_label = $FlavourTextLabel
+@onready var flavour_text_label = $MarginContainer2/FlavourTextLabel
 
 var trees_chopped : int = 0
 

@@ -16,6 +16,8 @@ extends Node
 @onready var water_splash_sound = $WaterSplash
 @onready var gravel_sound = $GravelSound
 @onready var magnet_effect = $MagnetEffect
+@onready var launcher_sound = $LauncherSound
+@onready var ah_sound = $AHSound
 
 @onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
@@ -31,7 +33,6 @@ func _stop_other_music(current_music: AudioStreamPlayer):
 func _play_intro_music():
 	intro_music.play()
 	_stop_other_music(intro_music)
-
 
 func _play_gameplay_music():
 	gameplay_music.play()
@@ -86,3 +87,9 @@ func _play_gravel_sound() -> void:
 
 func _play_magnet_effect() -> void:
 	magnet_effect.play()
+	
+func _play_launcher_sound() -> void:
+	launcher_sound.play()
+
+func _play_ah_sound() -> void:
+	ah_sound.play()
