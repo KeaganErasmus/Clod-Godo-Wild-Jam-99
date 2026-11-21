@@ -153,6 +153,17 @@ position = Vector2(594, 384)
 scale = Vector2(5.92, 4.24)
 texture = ExtResource("11_6vfdw")
 
+[node name="WinLabel" type="Label" parent="." unique_id=972005624]
+offset_left = 266.0
+offset_top = 47.0
+offset_right = 962.0
+offset_bottom = 200.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 82
+text = "IM PLUGGED UP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="." unique_id=375629902]
 layout_mode = 3
 anchors_preset = 0

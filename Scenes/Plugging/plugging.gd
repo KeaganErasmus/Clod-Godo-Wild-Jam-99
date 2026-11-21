@@ -27,6 +27,8 @@ var amount_clicked: int = 0
 
 @onready var gigga_x = $GiggaX
 
+@onready var win_label = $WinLabel
+
 var next_head_index = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +38,7 @@ func _ready() -> void:
 	heads = $EthHeads.get_children()
 	Global._start_global_timer()
 	gigga_x.hide()
+	win_label.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -70,6 +73,7 @@ func _process(_delta: float) -> void:
 			next_head_index = 0
 		else:
 			Global._stop_global_timer()
+			win_label.show()
 			await get_tree().create_timer(2).timeout
 			Global._next_scene()
 
