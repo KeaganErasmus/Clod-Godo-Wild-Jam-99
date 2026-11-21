@@ -3,9 +3,10 @@ extends Node
 @onready var intro_music = $IntroMusic
 @onready var transition_music = $TransitionMusic
 @onready var gameplay_music = $GameplayMusic
+@onready var you_lose_music = $YouLoseMusic
 @onready var button_click = $ButtonClick
 
-@onready var music_list = [intro_music, transition_music, gameplay_music]
+@onready var music_list = [intro_music, transition_music, gameplay_music, you_lose_music]
 
 func _stop_all_music():
 	for music in music_list:
@@ -28,6 +29,10 @@ func _play_gameplay_music():
 func _play_transition_music():
 	transition_music.play()
 	_stop_other_music(transition_music)
+	
+func _play_you_lose_music():
+	you_lose_music.play()
+	_stop_other_music(you_lose_music)
 
 func _set_music_volume(volume: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(volume))
