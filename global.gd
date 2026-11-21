@@ -35,7 +35,7 @@ var time_increase_multiplier: float = 0.1 # 0.1 = +10% time per round
 var difficulty_multiplier: float = 0.20
 
 func _reset_global_variables():
-	day_scene_order = [stacking_scene, plugging_scene, digging_scene, chopping_scene]
+	day_scene_order = [chopping_scene, digging_scene, stacking_scene, plugging_scene]
 	current_scene_index = 0
 	data_center_list = [] # persist data center positions in transition scene
 	days_elapsed = 1
@@ -87,7 +87,6 @@ func _next_scene():
 		get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])
 
 func _next_day():
-	_reset_global_timer()
 	days_elapsed += 1
 
 	### Update Quota/Difficulty here
@@ -95,6 +94,8 @@ func _next_day():
 	#data_center_quota += days_elapsed
 	
 	max_time_left += max_time_left * time_increase_multiplier
+	
+	_reset_global_timer()
 	
 	server_quota += round(server_quota * difficulty_multiplier)
 	water_quota += round(water_quota * difficulty_multiplier)

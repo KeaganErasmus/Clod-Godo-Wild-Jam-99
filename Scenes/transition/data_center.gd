@@ -7,7 +7,7 @@ const SQUASH_SCALE := Vector2(1.15, 0.9)
 const SQUASH_TIME := 0.1
 const HOVER_TIME := 0.2
 
-func _ready():
+func _pop_in():
 	MusicPlayer._play_button_click()
 	var _tween: Tween = null
 	_tween = create_tween()

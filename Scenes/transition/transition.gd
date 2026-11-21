@@ -4,6 +4,7 @@ var rng = RandomNumberGenerator.new()
 
 @onready var data_center_area = $Area2D/CollisionShape2D
 @onready var data_center_count_label = $Control/Control/VBoxContainer/MarginContainer2/DataCenterCount
+@onready var music_volume_slider = $Control/Control/VBoxContainer/MarginContainer3/MusicVolume
 var data_center_scene = load("res://Scenes/transition/data_center.tscn")
 
 var data_center_count_text = "DATA CENTERS: "
@@ -12,6 +13,7 @@ var data_center_spawn_delay: float = 0.1
 
 func _ready() -> void:
 	data_center_count_label.text = data_center_count_text + str(Global.data_center_count)
+	music_volume_slider.value = MusicPlayer._get_music_volume()
 	var data_center_area_rect = data_center_area.shape.get_rect()
 
 	var area_min_x = data_center_area_rect.position.x
@@ -34,7 +36,7 @@ func _ready() -> void:
 		var random_y = rng.randf_range(area_min_y, area_max_y)
 		#print(str(random_x) + " " + str(random_y))
 
-		_spawn_data_center(random_x, random_y)
+		_spawn_data_center(random_x, random_y)._pop_in()
 		Global.data_center_list.append(Vector2(random_x, random_y))
 		await get_tree().create_timer(data_center_spawn_delay).timeout
 
@@ -42,7 +44,12 @@ func _spawn_data_center(x, y):
 	var data_center = data_center_scene.instantiate()
 	$Area2D/DataCenters.add_child(data_center)
 	data_center.position = Vector2(x, y)
+	return data_center
 
 
 func _on_next_day_button_pressed() -> void:
 	Global._next_day()
+
+
+func _on_music_volume_value_changed(value: float) -> void:
+	Global._set_music_volume(value)

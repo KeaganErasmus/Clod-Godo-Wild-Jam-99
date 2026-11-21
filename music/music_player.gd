@@ -31,6 +31,9 @@ func _play_transition_music():
 
 func _set_music_volume(volume: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(volume))
+	
+func _get_music_volume() -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(0))
 
 func _play_button_click() -> void:
 	button_click.play()

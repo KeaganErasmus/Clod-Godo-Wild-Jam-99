@@ -41,12 +41,13 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -108.0
 offset_right = 108.0
-offset_bottom = 75.0
+offset_bottom = 318.0
 grow_horizontal = 2
+theme_override_constants/separation = 10
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/Control/VBoxContainer" unique_id=1902480233]
 layout_mode = 2
-theme_override_constants/margin_top = 223
+theme_override_constants/margin_top = 153
 
 [node name="DataCenterCount" type="Label" parent="Control/Control/VBoxContainer/MarginContainer2" unique_id=1944629989]
 layout_mode = 2
@@ -64,4 +65,14 @@ size_flags_horizontal = 4
 text = "CONTINUE"
 script = ExtResource("3_o3j0a")
 
+[node name="MarginContainer3" type="MarginContainer" parent="Control/Control/VBoxContainer" unique_id=68371990]
+layout_mode = 2
+
+[node name="MusicVolume" type="HSlider" parent="Control/Control/VBoxContainer/MarginContainer3" unique_id=688341643]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
 [connection signal="pressed" from="Control/Control/VBoxContainer/MarginContainer/NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="value_changed" from="Control/Control/VBoxContainer/MarginContainer3/MusicVolume" to="." method="_on_music_volume_value_changed"]
