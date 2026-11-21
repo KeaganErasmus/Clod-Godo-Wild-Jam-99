@@ -7,6 +7,7 @@ var start_menu_scene = preload("res://Scenes/menu/starting_menu.tscn")
 var you_lose_scene = preload("res://Scenes/menu/you_lose.tscn")
 var digging_scene = preload("res://Scenes/digging/scenes/digging.tscn")
 var chopping_scene = preload("res://Scenes/Chopping/chopping.tscn")
+var lore_scene = preload("res://Scenes/menu/lore_intro.tscn")
 
 var default_scene = start_menu_scene
 
@@ -65,6 +66,9 @@ func _start_game():
 	_reset_global_variables()
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[0])
 	MusicPlayer._play_gameplay_music()
+	
+func _play_lore_scene():
+	get_tree().change_scene_to_packed.call_deferred(lore_scene)
 
 func _next_scene():
 	current_scene_index += 1

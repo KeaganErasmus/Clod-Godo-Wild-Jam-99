@@ -56,6 +56,7 @@ stream = ExtResource("2_f13mb")
 
 [node name="EthClick" type="AudioStreamPlayer" parent="." unique_id=1781335470]
 stream = ExtResource("3_gn5aw")
+volume_db = -6.075
 
 [node name="WrongEffect" type="AudioStreamPlayer" parent="." unique_id=2015332523]
 stream = ExtResource("4_0isv4")

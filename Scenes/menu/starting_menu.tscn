@@ -1,37 +1,61 @@
 [gd_scene format=3 uid="uid://d4kxxajbmml5d"]
 
 [ext_resource type="Script" uid="uid://bkjcq0jodqhke" path="res://Scenes/menu/starting_menu.gd" id="1_vujxf"]
+[ext_resource type="Texture2D" uid="uid://bai6v2ao5opwl" path="res://Scenes/menu/starting menu.png" id="2_eygm8"]
 [ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="2_hytgr"]
+[ext_resource type="Texture2D" uid="uid://tvb7ns75knkv" path="res://Scenes/menu/sound icon.png" id="4_us0on"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eygm8"]
+bg_color = Color(0, 0.79443896, 0.9774148, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us0on"]
+bg_color = Color(0.52919996, 0.89735335, 0.98, 1)
 
 [node name="StartingMenu" type="CanvasLayer" unique_id=871854249]
 script = ExtResource("1_vujxf")
 
-[node name="Button" type="Button" parent="." unique_id=1616021104]
-anchors_preset = 8
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=397559302]
+texture_filter = 1
+position = Vector2(639.99994, 360.00003)
+scale = Vector2(1.9999999, 1.6861829)
+texture = ExtResource("2_eygm8")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=401153597]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -87.0
+offset_right = 100.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 36
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2074617198]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1616021104]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "START"
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
 script = ExtResource("2_hytgr")
 
-[node name="MusicVolume" type="HSlider" parent="." unique_id=1146893911]
-offset_left = 451.0
-offset_top = 465.0
-offset_right = 602.0
-offset_bottom = 481.0
-scale = Vector2(2.6799974, 2.2399976)
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer" unique_id=1760919074]
+position = Vector2(-16, 81)
+texture = ExtResource("4_us0on")
+
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1146893911]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_eygm8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_us0on")
 max_value = 1.0
 step = 0.001
 value = 1.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="value_changed" from="MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]

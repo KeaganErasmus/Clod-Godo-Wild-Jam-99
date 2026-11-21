@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cwddukm64ovrs"]
+
+[ext_resource type="Script" uid="uid://nsrlkdofih5s" path="res://Scenes/menu/lore_intro.gd" id="1_1p44o"]
+[ext_resource type="Texture2D" uid="uid://bngjc6sdy16ih" path="res://Scenes/menu/art/lore_bg.png" id="1_2tnfo"]
+[ext_resource type="Texture2D" uid="uid://chw46j0edj1sc" path="res://Scenes/menu/art/lore_text1.png" id="2_c3mkh"]
+[ext_resource type="Texture2D" uid="uid://d1xh1xd3euvpq" path="res://Scenes/menu/art/lore_text2.png" id="3_1p44o"]
+[ext_resource type="Script" uid="uid://k3f8yutynpg0" path="res://animated_button.gd" id="5_1lmoa"]
+[ext_resource type="Texture2D" uid="uid://edebhdd45n8j" path="res://Scenes/menu/art/lore_text3.png" id="5_8xdbi"]
+
+[node name="LoreIntro" type="Node2D" unique_id=687847940]
+script = ExtResource("1_1p44o")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1216312451]
+position = Vector2(640, 360)
+texture = ExtResource("1_2tnfo")
+
+[node name="Texts" type="Node2D" parent="." unique_id=1149485189]
+position = Vector2(640, 360)
+
+[node name="Text1" type="Sprite2D" parent="Texts" unique_id=1555556897]
+visible = false
+texture = ExtResource("2_c3mkh")
+
+[node name="Text2" type="Sprite2D" parent="Texts" unique_id=1651735656]
+visible = false
+texture = ExtResource("3_1p44o")
+
+[node name="Text3" type="Sprite2D" parent="Texts" unique_id=1707736795]
+visible = false
+texture = ExtResource("5_8xdbi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1284858161]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1363059535]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.22
+offset_top = -91.0
+offset_right = 71.22
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 33
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=304436958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "START"
+script = ExtResource("5_1lmoa")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1738789836]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -91.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 48
+
+[node name="SkipButton" type="Button" parent="CanvasLayer/MarginContainer2" unique_id=481861215]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SKIP"
+script = ExtResource("5_1lmoa")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/SkipButton" to="." method="_on_skip_button_pressed"]

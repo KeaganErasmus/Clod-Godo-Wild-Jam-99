@@ -55,4 +55,12 @@ theme_override_font_sizes/font_size = 34
 text = "TRY AGAIN"
 script = ExtResource("2_6hd02")
 
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=37253225]
+layout_mode = 2
+
+[node name="DataCenterStats" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=800208532]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartOverButton" to="." method="_on_start_over_button_pressed"]
