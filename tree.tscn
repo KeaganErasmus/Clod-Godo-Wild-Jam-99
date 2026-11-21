@@ -1,16 +1,33 @@
 [gd_scene format=3 uid="uid://j1c1mkqr5hid"]
 
 [ext_resource type="Script" uid="uid://cfj66rm3yqcr6" path="res://tree.gd" id="1_nnvrw"]
+[ext_resource type="Texture2D" uid="uid://05uvle3wfi8a" path="res://Scenes/Chopping/art/leaf.png" id="2_gvmkm"]
 [ext_resource type="Texture2D" uid="uid://c0nfftf0qegpn" path="res://Scenes/Chopping/art/tree.png" id="2_nnvrw"]
 
 [sub_resource type="Gradient" id="Gradient_nnvrw"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.004830918, 0.014492754, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.5507246, 1, 1, 1, 0.6931179, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_il1na"]
 size = Vector2(126, 121)
 
 [node name="Tree" type="Node2D" unique_id=1823463163]
 script = ExtResource("1_nnvrw")
+
+[node name="SpawnParticle" type="CPUParticles2D" parent="." unique_id=1688514305]
+amount = 50
+texture = ExtResource("2_gvmkm")
+lifetime = 3.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 151.76
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [node name="MuzzleParticle" type="CPUParticles2D" parent="." unique_id=1084759730]
 emitting = false

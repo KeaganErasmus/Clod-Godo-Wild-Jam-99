@@ -2,6 +2,7 @@ class_name cTree
 extends Node2D
 
 @onready var p_emitter = $MuzzleParticle
+@onready var spawn_particle_emitter: CPUParticles2D = $SpawnParticle
 
 var active: bool = true
 
@@ -15,6 +16,8 @@ func _ready() -> void:
 		left = false
 	else:
 		left = true
+	await get_tree().create_timer(0.2).timeout
+	spawn_particle_emitter.emitting = false
 
 func _process(delta: float) -> void:
 	#wiggle(delta)

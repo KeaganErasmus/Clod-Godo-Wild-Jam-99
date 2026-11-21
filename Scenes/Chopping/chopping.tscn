@@ -11,8 +11,8 @@ script = ExtResource("1_uxvc8")
 tree_spawn_timer = 2.0
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=872307794]
-position = Vector2(634, 239)
-scale = Vector2(1.2399976, 1.96)
+position = Vector2(645, 364)
+scale = Vector2(1.24, 1.25)
 texture = ExtResource("5_kuael")
 
 [node name="Gun" parent="." unique_id=919306125 instance=ExtResource("3_r2x86")]
