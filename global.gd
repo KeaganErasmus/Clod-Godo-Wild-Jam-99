@@ -92,14 +92,14 @@ func _next_day():
 	### Update Quota/Difficulty here
 	data_center_quota += 1
 	#data_center_quota += days_elapsed
-	
+
 	max_time_left += max_time_left * time_increase_multiplier
-	
+
 	_reset_global_timer()
-	
+
 	server_quota += round(server_quota * difficulty_multiplier)
 	water_quota += round(water_quota * difficulty_multiplier)
-	tree_quota += round(tree_quota * difficulty_multiplier) 
+	tree_quota += round(tree_quota * difficulty_multiplier)
 
 	current_scene_index = 0
 	get_tree().change_scene_to_packed.call_deferred(day_scene_order[current_scene_index])

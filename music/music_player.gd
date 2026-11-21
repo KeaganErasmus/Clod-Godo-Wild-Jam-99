@@ -31,14 +31,14 @@ func _play_gameplay_music():
 func _play_transition_music():
 	transition_music.play()
 	_stop_other_music(transition_music)
-	
+
 func _play_you_lose_music():
 	you_lose_music.play()
 	_stop_other_music(you_lose_music)
 
 func _set_music_volume(volume: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(volume))
-	
+
 func _get_music_volume() -> float:
 	return db_to_linear(AudioServer.get_bus_volume_db(0))
 
