@@ -7,6 +7,7 @@ extends Node2D
 var active: bool = true
 
 var left: bool = false
+var damageable: bool = false
 
 var move_speed: int = 400
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	else:
 		left = true
 	await get_tree().create_timer(0.2).timeout
+	damageable = true
 	spawn_particle_emitter.emitting = false
 
 func _process(delta: float) -> void:
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var ob := area.get_parent()
-	if ob is Bullet and active:
+	if ob is Bullet and active and damageable:
 		ob.destroy()
 		die()
 
